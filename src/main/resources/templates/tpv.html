@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <title>pago</title>
+    <style type="text/css">
+
+        #container{
+            width: 50%;
+            height: 100%;
+            position: relative;
+            bottom: 10%;
+            left: 20%;
+            text-align: center;
+            vertical-align: middle;
+            padding: 5%;
+        }
+        #intentos{
+            color: red;
+            text-align: center;
+        }
+        #log{
+            width: 40%;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <img id="log" src="images/login.png"></img>
+       <form action="/tpvamspago" method="POST">
+        <label>Importe</label>
+        <input type="text" name="importe"/><br/><br/>
+        <label>TipoMoneda</label>
+        <input type="text" name="tipoMoneda"/><br/><br/>
+        <label>UrlOk</label>
+        <input type="text" name="urlOk"/><br/><br/>
+        <label>UrlNok</label>
+        <input type="text" name="urlNok"/><br/><br/>
+        <label>Idioma</label>
+        <input type="text" name="idioma"/><br/><br/>
+        <label>Descripcion</label>
+        <input type="text" name="descripcion"/><br/><br/>
+        <input type="submit" value="Entrar"/>
+    </form>
+</div>
+</body>
+</html>
