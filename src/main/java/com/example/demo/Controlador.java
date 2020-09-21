@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -9,6 +12,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,7 +40,7 @@ public class Controlador {
     	 }  
          
          @PostMapping("/tpvamspago")
-         public void pagoTpv(@RequestParam("importe") String importe,@RequestParam("tipoMoneda") String tipoMoneda,
+         public RedirectView pagoTpv(@RequestParam("importe") String importe,@RequestParam("tipoMoneda") String tipoMoneda,
         		 @RequestParam("urlOk") String urlOk,@RequestParam("urlNok") String urlNok,
         		 @RequestParam("idioma") String idioma,@RequestParam("descripcion") String descripcion,HttpServletResponse httpServletResponse) {
          	 System.out.println("Pago Tarjeta ...");
@@ -58,6 +62,7 @@ public class Controlador {
          		String password2 = "3ccf5231-d870-4f04-a4ad-664d1348c63d";
          		String servicioPago = "pagoTarjeta/";
          		String urlTPV="";
+         		Map<String, String> urlTPV2 = new HashMap<String, String>();
          		ModelAndView model;
          		model = new ModelAndView("pagoTpv");
          		try {
@@ -73,21 +78,28 @@ public class Controlador {
          	        Response response = invocationBuilder.post(Entity.entity(datosPago, MediaType.APPLICATION_JSON));
 
          	        System.out.println(response.getStatus());
-         	        urlTPV=response.readEntity(String.class);
-         	        System.out.println(urlTPV);
+         	        //urlTPV=response.readEntity(String.class);
+         	        //System.out.println(urlTPV);
+         	      
+         	       
+
+         	        urlTPV2=response.readEntity(Map.class);
+         	        
+        	      
+        	        System.out.println(urlTPV2.get("url"));
          	       
 
          		} catch (Exception e) {
          			e.printStackTrace();
          		}
          		
-//         	    RedirectView redirectView = new RedirectView();
-//         	    redirectView.setUrl(urlTPV);
-//         	    return redirectView;
+        	    RedirectView redirectView = new RedirectView();
+         	    redirectView.setUrl(urlTPV2.get("url"));
+         	    return redirectView;
          		/*model.addObject("url", urlTPV);
          		return model;*/
          	   //return new ModelAndView("redirect:" + urlTPV);
-         	   httpServletResponse.setHeader("Location", urlTPV);
+         	   //httpServletResponse.setHeader("Location", urlTPV);
          		
          		 
          }
