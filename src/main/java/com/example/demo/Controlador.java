@@ -46,7 +46,7 @@ public class Controlador {
          public RedirectView pagoTpv(@RequestParam("importe") String importe,@RequestParam("tipoMoneda") String tipoMoneda,
         		 @RequestParam("urlOk") String urlOk,@RequestParam("urlNok") String urlNok,
         		 @RequestParam("idioma") String idioma,@RequestParam("descripcion") String descripcion,HttpServletResponse httpServletResponse) {
-         	 System.out.println("Pago Tarjeta ...");
+         	 System.out.println("Pago Tarjeta ..........");
          		PagoTarjetaIn datosPago = new PagoTarjetaIn();
 
          		datosPago.setImporte(new Long(importe));
