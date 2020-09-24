@@ -129,7 +129,7 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <outputDirectory>target</outputDirectory>
-              		  <warName>ROOT</warName>
+              		  <warName>demo-0.0.1-SNAPSHOT</warName>
                 </configuration>
             </plugin>
 			
