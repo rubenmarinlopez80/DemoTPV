@@ -139,7 +139,7 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <outputDirectory>target</outputDirectory>
-              		  <warName>demo-0.0.1-SNAPSHOT</warName>
+              		  <warName>mytpv</warName>
                 </configuration>
             </plugin>
 			
