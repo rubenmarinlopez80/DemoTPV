@@ -1,0 +1,101 @@
+/************************* COMPONENTS / POPUP ******************************/
+
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.7);
+	text-align: center;
+	visibility: hidden;
+	opacity: 0;
+	transition: .2s all linear;
+	z-index: 100000;
+	.popup-layout {
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		top: 5vh;
+		width: 90%;
+		max-height: 90vh;
+		padding: 25px;
+		background: @white;
+		box-shadow: 1px 1px 10px 3px rgba(0,0,0,.3);
+		-webkit-box-shadow: 1px 1px 10px 3px rgba(0,0,0,.3);
+		.popup-content {
+			max-height: 141px;
+			overflow: auto;
+			p {
+				&.popup-content-important {
+					font-family: @mainFont-bold;
+				}
+			}
+		}
+		.popup-title {
+			position: relative;
+			padding: 0 40px;
+			.delete-icon-right {
+				position: absolute;
+				top: -3px;
+				right: 0;
+			}
+			.edit-icon-right {
+				position: absolute;
+				top: -3px;
+				right: 0;
+			}
+		}
+		.popup-box {
+			max-height: ~"calc(90vh - 155px)";
+			overflow: auto;
+		}
+		.popup-actions {
+			button, .button {
+				cursor: pointer;
+			}
+		}
+		.separator {
+			height: 3vh;
+		}
+	}
+	&.opened {
+		visibility: visible;
+		opacity: 1;
+	}
+	&.popup-close {
+		.popup-layout {
+			top: 8vh;
+			width: 50%;
+		}
+	}
+}
+
+/***** REPSONSIVE *****/
+
+@media (max-width: 767px) {
+
+	.popup {
+		.popup-layout {
+			.form-group {
+				width: 100%;
+				margin-right: 0;
+				label {
+					margin-right: 5px;
+					white-space: normal;
+					word-break: break-word;
+				}
+				.form-item {
+					width: 100%;
+					input, select {
+						width: 100%;
+					}
+				}
+				&.form-inline {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+}

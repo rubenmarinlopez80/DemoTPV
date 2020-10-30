@@ -1,0 +1,28 @@
+<div
+    th:fragment="tooltipError(campo)"
+    th:if="${!#arrays.isEmpty(#fields.errors(campo))}"
+    class="error-message">
+    <div class="error-message-title">
+        <i
+            class="fa fa-exclamation-triangle"
+            aria-hidden="true"></i>
+        <span>ERROR</span>
+    </div>
+    <span
+        class="error-message-text"
+        th:errors="*{__${campo}__}"></span>
+</div>
+<div
+    th:fragment="tooltipErrorMsg(campo, mensaje)"
+    th:if="${!#arrays.isEmpty(#fields.errors(campo))}"
+    class="error-message">
+    <div class="error-message-title">
+        <i
+            class="fa fa-exclamation-triangle"
+            aria-hidden="true"></i>
+        <span>ERROR</span>
+    </div>
+    <span
+        class="error-message-text"
+        th:text="${mensaje}"></span>
+</div>

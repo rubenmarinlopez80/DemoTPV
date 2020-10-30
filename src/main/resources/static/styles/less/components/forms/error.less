@@ -1,0 +1,301 @@
+/************************* COMPONENTS / FORMS / ERROR ******************************/
+
+/* Box Errors */
+
+.box-errors {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	width: 100%;
+	margin: 10px 0 45px 0;
+	padding: 15px;
+	background: @white2;
+	border: 1px solid @mainBG1;
+	text-align: center;
+	&:before {
+		content: '\f057';
+		font-family: 'fontAwesome';
+		position: absolute;
+		top: -24px;
+		left: 0;
+		font-size: 16px;
+		color: @mainBG1;
+	}
+	&:after {
+		content: attr(text);
+		position: absolute;
+		top: -20px;
+		left: 20px;
+		font-family: @mainFont-bold;
+		font-size: @text;
+		color: @mainBG1;
+		text-transform: uppercase;
+	}
+	p {
+		margin: 0;
+		font-family: @mainFont-semibold;
+		font-size: @text;
+		color: @grey3;
+	}
+	&.box-blue {
+		border: 1px solid @blue;
+		&:before, &:after {
+			color: @blue;
+		}
+	}
+	&.box-red {
+		border: 1px solid @red;
+		&:before, &:after {
+			color: @red;
+		}
+	}
+	&.box-orange {
+		border: 1px solid @orange;
+		&:before, &:after {
+			color: @orange;
+		}
+	}
+	&.box-green {
+		border: 1px solid @green;
+		&:before, &:after {
+			color: @green;
+		}
+	}
+}
+
+/* Box Warnings */
+
+.box-warnings {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	width: 100%;
+	margin: 10px 0 45px 0;
+	padding: 15px;
+	background: @white2;
+	border: 1px solid @red;
+	text-align: center;
+	&:before {
+		content: '\f071';
+		font-family: 'fontAwesome';
+		position: absolute;
+		top: -24px;
+		left: 0;
+		font-size: 16px;
+		color: @red;
+	}
+	&:after {
+		content: attr(text);
+		position: absolute;
+		top: -20px;
+		left: 20px;
+		font-family: @mainFont-bold;
+		font-size: @text;
+		color: @mainBG1;
+		text-transform: uppercase;
+	}
+	p {
+		margin: 0;
+		font-family: @mainFont-semibold;
+		font-size: @text;
+		color: @grey3;
+	}
+	&.box-blue {
+		border: 1px solid @blue;
+		&:before{
+			content: '\f05a';
+			font-size: 18px; 
+		}
+		&:before, &:after {
+			color: @blue;
+		}
+	}
+	&.box-red {
+		border: 1px solid @red;
+		&:before, &:after {
+			color: @red;
+		}
+	}
+	&.box-orange {
+		border: 1px solid @yellow;
+		&:before, &:after {
+			color: @yellow;
+		}
+	}
+	&.box-green {
+		border: 1px solid @green;
+		&:before, &:after {
+			color: @green;
+		}
+	}
+}
+
+/* Box OK */
+
+.box-ok {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	width: 100%;
+	margin: 10px 0 45px 0;
+	padding: 15px;
+	background: @white2;
+	border: 1px solid @mainBG1;
+	text-align: center;
+	&:before {
+		content: '\f14a';
+		font-family: 'fontAwesome';
+		position: absolute;
+		top: -24px;
+		left: 0;
+		font-size: 16px;
+		color: @mainBG1;
+	}
+	&:after {
+		content: attr(text);
+		position: absolute;
+		top: -20px;
+		left: 20px;
+		font-family: @mainFont-bold;
+		font-size: @text;
+		color: @mainBG1;
+		text-transform: uppercase;
+	}
+	p {
+		margin: 0;
+		font-family: @mainFont-semibold;
+		font-size: @text;
+		color: @grey3;
+	}
+	&.box-blue {
+		border: 1px solid @blue;
+		&:before, &:after {
+			color: @blue;
+		}
+	}
+	&.box-red {
+		border: 1px solid @red;
+		&:before, &:after {
+			color: @red;
+		}
+	}
+	&.box-orange {
+		border: 1px solid @orange;
+		&:before, &:after {
+			color: @orange;
+		}
+	}
+	&.box-green {
+		border: 1px solid @green;
+		&:before, &:after {
+			color: @green;
+		}
+	}
+}
+
+/* Box Fixed */
+
+.box-fixed {
+	position: fixed;
+	top: 104px;
+	left: 0;
+	width: 100%;
+	padding: 20px 50px 0 50px;
+	background: @white;
+	border-bottom: 1px solid @greyE;
+	box-shadow: inset 0 25px 45px -10px rgba(0,0,0,.1);
+	text-align: center;
+	transition: 1s all ease-in-out;
+	z-index: 100;
+	&.box-fixed-close {
+		top: -100%;
+	}
+	.box-button {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		position: absolute;
+		top: 15px;
+		right: 50px;
+		width: 20px;
+		height: 20px;
+		background-image: url('../images/icons/close-w.svg');
+		background-color: @grey2;
+		background-size: 50%;
+		background-position: center;
+		background-repeat: no-repeat;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+	.box-errors, .box-warnings, .box-ok {
+		width: 100%;
+		margin: 20px 0 15px 0;
+		padding: 0;
+		background: none;
+		border: none;
+		text-align: left;
+	}
+}
+
+/* Error Message */
+
+.error-message {
+	display: block;
+	position: relative;
+	margin-top: 15px;
+	padding: 5px 10px;
+	background: @white2;
+	border: 1px solid @red;
+	text-align: left;
+	&:before {
+		content: '';
+		position: absolute;
+		top: -8px;
+		left: 15px;
+		width: 15px;
+		height: 15px;
+		background: @white2;
+		border-left: 1px solid @red;
+		border-top: 1px solid @red;
+		transform: rotateZ(45deg);
+	}
+	.error-message-title {
+		i {
+			margin-right: 5px;
+			font-size: 16px;
+			color: @red;
+		}
+		span {
+			font-family: @mainFont-bold;
+			font-size: @text;
+			color: @red;
+		}
+	}
+	.error-message-text {
+		font-family: @mainFont-semibold;
+		font-size: @text;
+		color: @grey3;
+	}
+	&.error-message-left, &.error-message-right {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	&.error-message-left {
+		margin-right: 2%;
+		width: 58%;
+	}
+	&.error-message-right {
+		margin-left: 2%;
+		width: 38%;
+	}
+}
+
+@media (max-width: 1023px) {
+	.box-fixed {
+		padding: 35px 25px 0 25px;
+		.box-button {
+			top: 25px;
+			right: 25px;
+		}
+	}
+}

@@ -1,0 +1,61 @@
+/************************* COMPONENTS / FORMS / DATEPICKER ******************************/
+
+.calendar-icon {
+	position: absolute;
+	bottom: -1px;
+	right: -6px;
+	border: none;
+	background-color: unset;
+}
+.datepicker{
+	font-family: @mainFont;
+    z-index: 30 !important;
+    table {
+    	thead {
+    		font-family: @mainFont-bold;
+    		color: @grey4;
+    		.dow {
+    			font-family: @mainFont-semibold;
+    			color: @grey8;
+    		}
+    	}
+    	tr {
+    		td {
+    			&.active {
+    				background: @corporate2;
+					&:hover, &.disabled, &.disabled:hover,
+					&:hover, &:hover:hover, &.disabled:hover, &.disabled:hover:hover,
+					&:active, &:hover:active, &.disabled:active, &.disabled:hover:active,
+					&.active, &:hover.active, &.disabled.active, &.disabled:hover.active,
+					&.disabled, &:hover.disabled, &.disabled.disabled, &.disabled:hover.disabled,
+					&[disabled], &:hover[disabled], &.disabled[disabled], &.disabled:hover[disabled] {
+						background: @corporate2;
+					}
+				}
+				span {
+					&.active {
+						background: @corporate2;
+						&:hover, &.disabled, &.disabled:hover, &:hover, &:hover:hover, &.disabled:hover, &.disabled:hover:hover,
+						&:active, &:hover:active, &.disabled:active, &.disabled:hover:active, &.active, &:hover.active, &.disabled.active,
+						&.disabled:hover.active, &.disabled, &:hover.disabled, &.disabled.disabled, &.disabled:hover.disabled, &[disabled],
+						&:hover[disabled], &.disabled[disabled], &.disabled:hover[disabled] {
+							background: @corporate2;
+						}
+					}
+				}
+    		}
+    	}
+    }
+}
+
+.bootstrap-datetimepicker-widget {
+    a {
+    	&:hover {
+    		color: @corporate2;
+    	}
+    }
+    .separator {
+    	display: table-cell;
+    	width: 1px;
+    }
+}

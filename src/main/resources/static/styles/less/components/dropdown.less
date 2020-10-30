@@ -1,0 +1,44 @@
+/************************* COMPONENTS / DROPDOWN ******************************/
+
+.dropdown, .dropup {
+	display: inline-block;
+	vertical-align: top;
+	button, .button {
+		background: @mainBG1;
+		border: none;
+		color: @white;
+		&:hover {
+			background: @grey6;
+			color: @white;
+		}
+		&.btn-default {
+			&.active, &:active {
+				&.focus, &:focus, &:hover {
+					background: @grey6;
+					color: @white;
+				}
+			}
+		}
+	}
+	&.open {
+		& > .dropdown-toggle {
+			&.btn-default {
+				&.focus, &:focus, &:hover {
+					background: @grey6;
+					color: @white;
+				}
+			}
+		}
+	}
+	.caret {
+		margin-left: 5px;
+		color: @white;
+	}
+	ul {
+		li {
+			&:before {
+				display: none;
+			}
+		}
+	}
+}

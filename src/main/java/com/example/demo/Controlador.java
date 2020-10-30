@@ -13,6 +13,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,18 +30,28 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 
 @Controller
+//@Configuration
 @RequestMapping("/pruebas")
 public class Controlador {
+	
+		   
+	    /** The ccsv URL. */
+	    //@Value("${webservice.soap.ppaTPVurl}")
+	    //private String urlServidor;
+	
+	 	 @Autowired
+	 	 YAMLConfig propiedades;
     
          @GetMapping("otra")
-	 public String login()
-	 {		
-		 return "otrapagina";
-	 }  
+		 public String login()
+		 {		
+			 return "otrapagina";
+		 } 
          
          @GetMapping("pago")
     	 public String tpvpago()
-    	 {		
+    	 {	
+        	 System.out.println("Pago Tarjeta .........."+propiedades.getPpaTPVurl());
     		 return "tpv";
     	 }  
          
@@ -46,19 +59,17 @@ public class Controlador {
          public RedirectView pagoTpv(@RequestParam("importe") String importe,@RequestParam("tipoMoneda") String tipoMoneda,
         		 @RequestParam("urlOk") String urlOk,@RequestParam("urlNok") String urlNok,
         		 @RequestParam("idioma") String idioma,@RequestParam("descripcion") String descripcion,HttpServletResponse httpServletResponse) {
-         	 System.out.println("Pago Tarjeta ..........");
+         	 	System.out.println("Pago Tarjeta ..........");
          		PagoTarjetaIn datosPago = new PagoTarjetaIn();
-
          		datosPago.setImporte(new Long(importe));
          		datosPago.setTipoMoneda(tipoMoneda);
          		datosPago.setUrlOk(urlOk);
          		datosPago.setUrlNok(urlNok);
          		datosPago.setIdioma(idioma);
          		datosPago.setDescripcion(descripcion);
-
          		//----------------------------------
          		System.out.println("DatosPago : " +datosPago);
-         		
+         		//System.out.println("urlServidor : " +urlServidor);
          		String urlServidor = "https://despasarelapagos.aragon.es/ppa_tpv/services/v1/tpv/";
          		boolean inicializado = true;
          		String user2 = "prueba";

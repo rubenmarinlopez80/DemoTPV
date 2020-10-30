@@ -1,0 +1,122 @@
+/************************* COMPONENTS / FORMS / BUTTON ******************************/
+
+button, .button {
+	display: inline-block;
+	vertical-align: middle;
+	height: initial;
+	padding: 6px 15px;
+	background: @button;
+	border: none;
+	border-radius: 25px;
+	font-family: @mainFont-bold;
+	font-size: @text;
+	color: @white;
+	&:hover {
+		background: @grey7;
+		color: @white;
+	}
+	&:link, &:visited, &:active {
+		color: @white;
+	}
+	&.cancel {
+		background: @greyA;
+		&:hover {
+			background: @grey6;
+		}
+	}
+	&.disabled {
+		opacity: .2;
+		pointer-events: none;
+		&.enabled {
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
+	&.enter {
+		background: @white;
+		color: @grey6;
+		&:hover {
+			background: @greyC;
+			color: @grey3;
+		}
+	}
+	&.exit {
+		background: @mainBG1;
+		&:hover {
+			background: @greyC;
+			color: @grey3;
+		}
+	}
+	&.other {
+		background: #686f75;
+		&:hover {
+			background: @grey6;
+			color: @white;
+		}
+	}
+	&.select {
+		background: @grey6;
+	}
+	&.upload {
+		&:hover {
+			background: @mainBG1;
+		}
+		&:after {
+		    content: '';
+		    display: inline-block;
+		    width: 13px;
+		    height: 10px;
+		    margin-left: 5px;
+		    background: url('../images/icons/upload-w.svg');
+		    background-size: 100%;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    opacity: .8;
+		}
+	}
+	&.return {
+		&:before {
+		    content: '';
+		    display: inline-block;
+		    width: 13px;
+		    height: 10px;
+		    margin-right: 5px;
+		    background: url('../images/icons/return-w.svg');
+		    background-size: 100%;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    opacity: .8;
+		}
+	}
+}
+
+.close {
+	opacity: 1;
+}
+
+.search-button {
+	padding: 10px 15px;
+}
+
+@media (max-width: 2000px) {
+
+	button, .button {
+		&.button-inline {
+			margin-bottom: 10px;
+		}
+	}
+	
+}
+
+@media (max-width: 450px) {
+
+	button, .button {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	
+	.search-button {
+		width: unset;
+	}
+	
+}

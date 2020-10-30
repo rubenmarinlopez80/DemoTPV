@@ -1,0 +1,101 @@
+/************************* COMPONENTS / LEGEND ******************************/
+
+.legend {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	.legend-box {
+		position: absolute;
+		top: 46px;
+		right: 0;
+		width: 200px;
+		padding: 10px;
+		background: @white2;
+		border: 1px solid @greyC;
+		font-size: @text;
+		z-index: 50;
+		visibility: hidden;
+		opacity: 0;
+		transition: .1s all ease-in-out;
+		&:before {
+			content: '\f0d7';
+			position: absolute;
+			top: -16px;
+			right: 0;
+			padding: 0 13px 9px 190px;
+			font-family: 'fontAwesome';
+    		color: @greyA;
+		}
+		.legend-title, .legend-item {
+			display: inline-block;
+			vertical-align: middle;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		.legend-title {
+			padding-bottom: 5px;
+			border-bottom: 1px solid @greyD;
+			font-family: @mainFont-bold;
+			font-size: @text;
+			color: @mainBG1;
+			text-transform: uppercase;
+			text-align: center;
+		}
+		.legend-item {
+			&:last-child {
+				margin-bottom: 0;
+			}
+			span, i {
+				display: inline-block;
+				vertical-align: middle;
+			}
+			span {
+				width: 139px;
+				padding-left: 10px;
+				font-family: @mainFont-semibold;
+				text-align: left;
+			}
+			i {
+				&:hover {
+					background: @iconBG4;
+				}
+				&.menu-icon-red {
+					background: @red;
+					color: @white;
+				}
+				&.menu-icon-orange {
+					background: @orange;
+					color: @white;
+				}
+				&.menu-icon-green {
+					background: @green;
+					color: @white;
+				}
+			}
+		}
+	}
+	&:hover, &.legend-visible {
+		.legend-box {
+			visibility: visible;
+			opacity: 1;
+		}
+		.menu-icon {
+			&.info-icon {
+				background: @greyC;
+				color: @white;
+			}
+		}
+	}
+	&.legend-visible {
+		.legend-box {
+			position: relative;
+			top: initial;
+			right: initial;
+			visibility: visible;
+			opacity: 1;
+			&:before {
+				display: none;
+			}
+		}
+	}
+}

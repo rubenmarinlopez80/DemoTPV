@@ -1,0 +1,184 @@
+/************************* COMPONENTS / ICONS / TITLE ******************************/
+
+.title-icon {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 5px;
+	font-size: 20px;
+	color: @mainBG1;
+}
+
+.add-icon, .delete-icon, .excel-icon, .pdf-icon, .edit-icon {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 6px;
+	margin-bottom: 5px;
+	&:before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		white-space: nowrap;
+	}
+	&:after {
+		content: attr(title-icon);
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 3px;
+		font-family: @mainFont-semibold;
+		font-size: @text;
+		color: @grey4;
+	}
+	&:hover {
+		&:after {
+			color: @grey8;
+		}
+	}
+}
+
+.add-icon-right, .delete-icon-right, .edit-icon-right, .excel-icon-right, .pdf-icon-right {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 15px;
+	&:after {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		white-space: nowrap;
+	}
+	&:before {
+		content: attr(title-icon);
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 5px;
+		font-family: @mainFont-semibold;
+		font-size: 13px;
+		color: @grey4;
+	}
+	&:hover {
+		&:before {
+			color: @grey8;
+		}
+	}
+}
+
+.add-icon {
+	&:before {
+		background-color: @mainBG1;
+		background-image: url("../images/icons/plus-w.svg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+.delete-icon {
+	&:before {
+		background-color: @red;
+		background-image: url("../images/icons/delete.svg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+.edit-icon {
+	&:before {
+		background-color: @blue;
+		background-image: url("../images/icons/edit.svg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+.excel-icon {
+	&:before {
+		background-color: @green;
+		background-image: url("../images/icons/excel-w.svg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+.pdf-icon {
+	&:before {
+		background-color: #a63336;
+		background-image: url("../images/icons/pdf-w.svg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+.add-icon-right {
+	&:after {
+		background-color: @mainBG1;
+		background-image: url("../images/icons/plus-w.svg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+.delete-icon-right {
+	&:after {
+		background-color: @red;
+		background-image: url("../images/icons/delete.svg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+.edit-icon-right {
+	&:after {
+		background-color: @blue;
+		background-image: url("../images/icons/edit.svg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+.excel-icon-right {
+	&:after {
+		background-color: @green;
+		background-image: url("../images/icons/excel-w.svg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+.pdf-icon-right {
+	&:after {
+		background-color: #a63336;
+		background-image: url("../images/icons/pdf-w.svg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+@media (max-width: 767px) {
+
+	.add-icon, .delete-icon, .edit-icon, .excel-icon, .pdf-icon {
+		&:after {
+			display: none;
+		}
+	}
+
+	.add-icon-right, .delete-icon-right, .edit-icon-right, .excel-icon-right, .pdf-icon-right {
+		&:before {
+			display: none;
+		}
+	}
+
+}

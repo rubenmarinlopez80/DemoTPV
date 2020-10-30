@@ -1,0 +1,162 @@
+/************************* COMPONENTS / TITLES ******************************/
+
+h1 {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	font-family: @mainFont-bold;
+	font-size: 16px;
+	color: @grey7;
+	&.squaredBCE {
+        width: 100%;
+        padding: 10px 5px;
+        background: @yellow;
+        color: @white;
+        text-align: center;
+    }
+    &.squaredAME {
+        width: 100%;
+        padding: 10px 5px;
+        background: @red;
+        color: @white;
+        text-align: center;
+    }
+    &.squaredMOV {
+        width: 100%;
+        padding: 10px 5px;
+        background: @green;
+        color: @white;
+        text-align: center;
+    } 
+	&.squared {
+		width: 100%;
+		padding: 10px 5px;
+		background: #5d6b74;
+		color: @white;
+		text-align: center;
+	}
+	&.fa {
+		padding-left: 25px;
+		font-family: @mainFont-bold;
+		font-size: 16px;
+		color: @mainBG1;
+		text-transform: uppercase;
+		&:before {
+			display: inline-block;
+		    vertical-align: middle;
+		    position: absolute;
+		    top: -2px;
+		    left: 0;
+		    margin-right: 5px;
+		    font-size: 20px;
+		    color: @mainBG4;
+			font-family: 'fontAwesome';
+		}
+	}
+}
+
+h2 {
+	margin: 15px 0 5px 0;
+	font-family: @mainFont-extrabold;
+	font-size: @text;
+	line-height: 24px;
+	color: @iconBG1;
+}
+
+h3 {
+	margin: 0;
+	font-family: @mainFont;
+	font-size: @text;
+	color: @iconBG1;
+}
+
+h4 {
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0;
+	font-family: @mainFont-extrabold;
+	font-size: 11px;
+	color: @iconBG1;
+	text-align: left;
+	transition: .1s all linear;
+}
+
+h5 {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	font-family: @mainFont-bold;
+	font-size: 10px;
+	color: @mainBG1;
+	text-align: left;
+}
+
+
+.info {
+	font-family: @mainFont-light;
+	font-size: 15px;
+	color: @grey6;
+	text-align: left;
+}
+
+.info-box {
+	p {
+		margin: 0;
+		padding: 0;
+	}
+	.type1 {
+		color: @type1!important;
+	}
+	
+	.type2 {
+		color: @type2!important;
+	}
+	
+	.type3 {
+		color: @type3!important;
+	}	
+	.info-box-title, .info-box-subtitle {
+		//font-size: @text;
+		color: @grey6;
+	}
+	.info-box-title {
+		font-family: @mainFont-bold;
+		font-size: 24px!important;
+	}
+	.info-box-subtitle {
+		font-family: @mainFont-semibold;
+		font-size: 18px;
+	}
+	.info-box-data, .info-box-url {
+		font-size: @text;
+	}
+	.info-box-data {
+		color: @grey6;
+		span {
+			font-family: @mainFont-bold;
+		}
+	}
+	.info-box-url {
+		font-family: @mainFont-semibold;
+		color: @mainBG1;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.title-convocatoria {
+	font-size: 24px;
+	color: @grey6;
+	font-family: @mainFont-bold;
+}
+
+@media (max-width: 720px) {
+	.info-box-title {		
+		font-size: 20px!important;
+	}
+	.info-box-subtitle {		
+		font-size: 16px;
+	}
+}
+

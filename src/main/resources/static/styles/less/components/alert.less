@@ -1,0 +1,482 @@
+/************************* COMPONENTS / ALERT ******************************/
+
+.subtitle-alert {
+	position: relative;
+    .subtitle-alert-date, .subtitle-alert-title {
+        display: block;
+    }
+    .subtitle-alert-date {
+        margin-bottom: 5px;
+        font-family: @mainFont-light;
+        font-size: @text;
+        color: @grey8;
+    }
+    .subtitle-alert-title {
+    	padding-right: 120px;
+        font-family: @mainFont-bold;
+        font-size: 18px;
+        color: @mainBG1;
+        text-transform: uppercase;
+    }
+    .switch {
+    	position: absolute;
+    	top: 15px;
+    	right: 0;
+		.switch-on, .switch-off {
+			right: initial;
+			left: -100px;
+			width: 100px;
+			padding-left: initial;
+			padding-right: 10px;
+	        text-align: right;
+		}
+		.switch-on {
+			&:after {
+				content: '\f06e';
+			    display: inline-block;
+			    vertical-align: middle;
+			    position: relative;
+			    top: -2px;
+			    margin-left: 5px;
+				font-family: 'fontAwesome';
+			    font-size: 16px;
+			    line-height: 12px;
+			}
+		}
+		.switch-off {
+			&:after {
+				content: '\f070';
+			    display: inline-block;
+			    vertical-align: middle;
+			    position: relative;
+			    top: -2px;
+			    margin-left: 5px;
+				font-family: 'fontAwesome';
+			    font-size: 16px;
+			    line-height: 12px;
+			}
+		}
+    }
+}
+
+.switch {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	width: 45px;
+	height: 17px;
+	background: #b1cfd8;
+	border: 1px solid @white;
+	border-radius: 25px;
+	cursor: pointer;
+	&:before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		position: absolute;
+		top: -4px;
+		right: -3px;
+		width: 23px;
+		height: 23px;
+		background: #2d6c9a;
+		border-radius: 50%;
+		transition: .2s all ease-in-out;
+	}
+	.switch-on, .switch-off {
+		position: absolute;
+		top: 0;
+		right: -200px;
+		width: 200px;
+		height: 15px;
+		padding-left: 10px;
+        font-family: @mainFont-bold;
+        font-size: 11px;
+        line-height: 15px;
+        color: @grey6;
+        text-transform: uppercase;
+        text-align: left;
+        transition: .2s all ease-in-out;
+	}
+	.switch-on {
+		visibility: visible;
+		opacity: 1;
+	}
+	.switch-off {
+		visibility: hidden;
+		opacity: 0;
+	}
+	&.switch-actuated {
+		background: @greyC;
+		&:before {
+			background: @grey9;
+			transform: translateX(-25px);
+		}
+		.switch-on {
+			visibility: hidden;
+			opacity: 0;
+		}
+		.switch-off {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+
+.attached-files {
+	max-height: 120px;
+	padding: 13px 10px 0 10px;
+	border: 1px solid @border;
+	font-size: 0;
+	overflow: auto;
+	.file {
+		display: inline-block;
+		vertical-align: middle;
+		width: 20%;
+		margin-bottom: 13px;
+		font-size: 0;
+		white-space: nowrap;
+		&:hover {
+			.file-info {
+				.file-title {
+					text-decoration: underline;
+				}
+			}
+		}
+		.file-info {
+			display: inline-block;
+			vertical-align: middle;
+			max-width: 65%;
+		    margin-left: 5px;
+		    overflow: hidden;
+			.file-title, .file-size {
+				display: block;
+			}
+		    .file-title {
+		    	max-width: 100%;
+		        font-family: @mainFont-bold;
+		        font-size: @text;
+		        color: @title;
+		        text-overflow: ellipsis;
+		        overflow: hidden;
+		    }
+		    .file-size {
+		        font-family: @mainFont-light;
+		        font-size: @text;
+		        color: @title;
+		    }
+		}
+	    .file-type {
+		    display: inline-block;
+		    vertical-align: middle;
+		    &:before {
+		    	content: '';
+		    	display: inline-block;
+		    	vertical-align: middle;
+		    	width: 40px;
+		    	height: 40px;
+		    }
+		    &.file-type-pdf {
+		    	&:before {
+		    		background: url('../images/icons/pdf.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-doc {
+		    	&:before {
+		    		background: url('../images/icons/doc.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-txt {
+		    	&:before {
+		    		background: url('../images/icons/txt.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-xls {
+		    	&:before {
+		    		background: url('../images/icons/xls.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-ppt {
+		    	&:before {
+		    		background: url('../images/icons/ppt.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-zip {
+		    	&:before {
+		    		background: url('../images/icons/zip.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-jpg {
+		    	&:before {
+		    		background: url('../images/icons/jpg.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-png {
+		    	&:before {
+		    		background: url('../images/icons/png.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-svg {
+		    	&:before {
+		    		background: url('../images/icons/svg.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-psd {
+		    	&:before {
+		    		background: url('../images/icons/psd.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-mp3 {
+		    	&:before {
+		    		background: url('../images/icons/mp3.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-mp4 {
+		    	&:before {
+		    		background: url('../images/icons/mp4.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-avi {
+		    	&:before {
+		    		background: url('../images/icons/avi.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-html {
+		    	&:before {
+		    		background: url('../images/icons/html.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		    &.file-type-noext {
+		    	&:before {
+		    		background: url('../images/icons/noextension-1.svg');
+		    		background-size: cover;
+		    	}
+		    }
+		}
+	}
+	&.attached-files-user {
+		max-height: initial;
+		padding: 5px 0;
+		border: none;
+		.file {
+			position: relative;
+			width: initial;
+			margin-bottom: 10px;
+			padding-right: 50px;
+			&:hover {
+				.file-info {
+					.file-title {
+						text-decoration: none;
+					}
+					.file-delete {
+		    			visibility: visible;
+		    			opacity: 1;
+		    		}
+				}
+			}
+			.file-info {
+				max-width: initial;
+			    .file-title {
+				    font-family: @mainFont;
+				    font-size: @text;
+			        color: @title;
+			        overflow: initial;
+			        text-overflow: initial;
+					&:hover {
+						.file-title-name {
+							text-decoration: underline;
+						}
+					}
+					.file-title-name {
+						display: block;
+				        font-family: @mainFont;
+				        font-size: @text;
+					}
+					.file-title-size {
+						display: block;
+				        font-family: @mainFont-bold;
+				        font-size: 10px;	
+					}
+			    }
+			    .file-delete {
+			    	display: inline-block;
+			    	vertical-align: middle;
+			    	position: absolute;
+			    	top: 8px;
+			    	right: 25px;
+			    	width: 15px;
+			    	height: 15px;
+			    	padding: 4px;
+		    		background: @mainBG4;
+		    		border-radius: 50%;
+		    		visibility: hidden;
+		    		opacity: 0;
+		    		transition: .1s all ease-in-out;
+		    		cursor: pointer;
+		    		&:hover {
+		    			background: @mainBG1;
+		    		}
+		    		img {
+		    			width: 100%;
+		    			height: auto;
+		    		}
+			    }
+			}
+			.file-type {
+			    &:before {
+			    	width: 25px;
+			    	height: 25px;
+			    	margin-top: 2px;
+			    }	
+			}
+		}
+	}
+}
+
+.alert-title {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	margin-bottom: 10px;
+	font-family: @mainFont-bold;
+	font-size: 14px;
+	color: @title;
+	text-transform: uppercase;
+}
+
+.alert-content {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	padding: 15px 20px 7px 20px;
+	background: @border;
+	p {
+		font-family: @mainFont;
+		font-size: 14px;
+		color: @title;
+	}
+	strong {
+		font-family: @mainFont-bold;
+		font-size: 14px;
+		font-weight: 100;
+		color: @title;
+	}
+}
+
+.alert-comments {
+	textarea {
+		display: block;
+		width: 100%;
+	    height: 150px;
+	    padding: 20px 3px;
+    	border-top: 1px solid #efefef;
+    	border-bottom: 1px solid #efefef;
+    	border-left: none;
+    	border-right: none;
+		font-family: @mainFont;
+		font-size: 14px;
+		color: @grey8;
+    	overflow: auto;
+    	resize: none;
+	}
+}
+
+.alert-upload {
+	.alert-upload-title {
+		font-family: @mainFont-bold;
+		font-size: 14px;
+		color: @title;
+		text-transform: uppercase;
+	}
+	.alert-upload-action {
+		font-size: 0;
+		input {
+			display: inline-block;
+			vertical-align: middle;
+			width: 84%;
+			margin-right: 1%;
+			padding: 10px 15px;
+			background: @border;
+			font-size: @text;
+		}
+		button, .button {
+			display: inline-block;
+			vertical-align: middle;
+			position: relative;
+			width: 10%;
+			font-size: @text;
+			text-align: center;
+			overflow: hidden;
+			cursor: pointer;
+			input {
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 100%;
+			    margin: 0;
+			    padding: 0;
+			    line-height: 100px;
+			    opacity: 0;
+			    -ms-filter: 'alpha(opacity=0)';
+			    cursor: pointer;
+			}
+			&.btn-grey {
+				background: @grey6;
+			}
+			&.upload {
+				width: 4%;
+				margin-left: 1%;
+			}
+		}
+	}
+}
+
+.upload-info {
+    margin-bottom: 10px;
+    padding: 5px 0;
+    font-family: @mainFont-semibold;
+    font-size: @text;
+    .upload-info-ok, .upload-info-error {
+    	position: relative;
+    	padding-left: 22px;
+    	line-height: 12px;
+    	&:before {
+	    	content: '';
+	    	display: inline-block;
+	    	vertical-align: middle;
+	    	position: absolute;
+	    	left: 0;
+	    	top: 0;
+	    	font-family: 'fontAwesome';
+	    	font-size: 18px;
+    	}
+    }
+    .upload-info-ok {
+    	&:before {
+    		content: '\f058';
+    		color: @ok;
+    	}
+    	color: @ok;
+    }
+    .upload-info-error {
+    	&:before {
+    		content: '\f057';
+    		color: @error;
+    	}
+    	color: @error;
+    }
+}

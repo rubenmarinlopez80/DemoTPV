@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: tpvppademo
+  datasource:
+    driver-class-name:org.h2.Driver
+    url:"jdbc:h2:mem:ejemplo_tpv"
+  security:
+    user:
+      name: admin
+      password: admin  
+  thymeleaf:
+      cache: false
+  messages:
+    basename: i18n/messages
+    cache-seconds: -1
+    encoding: UTF-8
+    always-use-message-format: false
+  server:
+    protect-endpoints: true
+    show-version: true
+    servlet:
+     context-path: /tpvppademo
+    port: 8080
+  nombre:
+    apellido: marin
+---  
+spring:    
+  profiles: local
+webservice:
+  soap: 
+    ppaTPVurl: https://despasarelapagos.aragon.es/ppa_tpv/services/v1/tpv/
+    user : prueba
+    password : 3ccf5231-d870-4f04-a4ad-664d1348c63d
+---
+spring:   
+  profiles: mi
+webservice:
+  soap: 
+    ppaTPVurl: https://despasarelapagos.aragon.es/ppa_tpv/services/v1/tpv/
+    user : prueba
+    password : 3ccf5231-d870-4f04-a4ad-664d1348c63d
+      
+---
+spring: 
+  profiles: me
+webservice:
+  soap: 
+    ppaTPVurl: https://prepasarelapagos.aragon.es/ppa_tpv/services/v1/tpv/
+    user : prueba
+    password : 3ccf5231-d870-4f04-a4ad-664d1348c63d
+---
+spring:  
+  profiles: mo
+webservice:
+  soap: 
+    ppaTPVurl: https://pasarelapagos.aragon.es/ppa_tpv/services/v1/tpv/
+    user : prueba
+    password : 3ccf5231-d870-4f04-a4ad-664d1348c63d
+    

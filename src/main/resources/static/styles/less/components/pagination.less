@@ -1,0 +1,190 @@
+/************************* COMPONENTS / PAGINATION ******************************/
+
+.pagination {
+	width: 310px;
+	margin: 0;
+	border: 1px solid @greyD;
+	border-radius: 0;
+	text-align: center;
+	justify-content: center;
+	.pages {		
+		align-items: center;
+		padding: 4px 0px;
+		span, a {
+			display: inline-block;
+			vertical-align: baseline;
+			width: 30px;
+			height: 24px;
+			font-family: @mainFont-bold;
+			font-size: 14px;
+			color: @grey6;
+			text-align: center;
+			line-height: 25px;
+			&:hover {
+				color: @corporate2;
+				cursor: pointer;
+			}
+			&.page-actual {
+				color: @corporate2;
+				&:hover {
+					cursor: default;
+				}
+			}
+			&.page-points {
+				border: none;
+				&:hover {
+					background: none;
+					color: @grey9;
+					cursor: default;
+				}
+			}
+		}
+	}
+}
+
+.results {
+	margin-bottom: 15px;
+	font-family: @mainFont-light;
+	font-weight: normal;
+	color: @grey9;
+	text-align: center;
+	span {
+		font-family: @mainFont-bold;
+		font-weight: bold;
+		color: @mainBG1;
+	}
+}
+
+.pageresults-head {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	text-align: right;
+	margin: 5px 0px;
+	.pagination-v2 {
+		margin: 0;
+		border-radius: 0;
+		text-align: right;
+		.pages {
+			span, a {
+				display: inline-block;
+				vertical-align: middle;
+				width: 20px;
+				height: 21px;
+				background: @white;
+				border: 1px solid @greyC;
+				font-family: @mainFont-bold;
+				font-size: 11px;
+				color: @grey6;
+				text-align: right;
+				line-height: 20px;
+				&:hover {
+					background: @corporate2;
+					color: @white;
+					cursor: pointer;
+				}
+				&.page-actual {
+					color: @corporate2;
+					&:hover {
+						cursor: default;
+					}
+				}
+				&.page-points {
+					border: none;
+					&:hover {
+						background: none;
+						color: @grey9;
+						cursor: default;
+					}
+				}
+			}
+		}
+	}
+	.results-v2 {
+		
+		font-family: @mainFont-light;
+		font-weight: normal;
+		color: @grey9;
+		text-align: right;
+		span {
+			font-family: @mainFont-bold;
+			font-weight: bold;
+			color: @mainBG1;
+		}
+	}
+}
+
+.header-table {
+	margin-bottom: 20px;
+	align-items: center;
+	display: flex;
+	.action-buttons {
+		flex: 1;
+	}
+	.pagination {
+		flex: 1;
+	}
+	.results {
+		margin-bottom: 0px;
+		flex: 1;
+		text-align: right;
+	}
+}
+
+.table-layout th.buttons-cell {
+	min-width: 110px;
+  }
+  .table-layout td[data-th=Acciones] {
+	text-align: center!important;
+  }
+  
+
+.table-layout {
+	.tfoot {
+		td {
+			padding: 0;
+			background: @greyD;
+			border-radius: 0;
+			text-align: center;
+			cursor: default;
+			table {
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0 auto;
+				tr {
+					&:hover {
+						background: transparent;
+					}
+					td {
+						display: inline-block;
+						vertical-align: middle;
+						width: 30px;
+						height: 25px;
+						padding: 0;
+						font-family: @mainFont-bold;
+						font-size: @text;
+						color: @grey6;
+						text-align: center;
+						line-height: 25px;
+						&:hover {
+							color: @corporate2;
+							cursor: pointer;
+						}
+						a {
+							color: @grey6;
+							&:hover {
+								color: @corporate2;
+							}
+						}
+						span {
+							color: @corporate2;
+							&:hover {
+								cursor: default;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

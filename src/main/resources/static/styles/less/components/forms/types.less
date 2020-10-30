@@ -1,0 +1,136 @@
+/************************* COMPONENTS / FORMS / TYPES ******************************/
+
+/* Form Left */
+
+.form-left {
+	text-align: left;
+	.form-group {
+		text-align: left;
+		label, .form-item {
+			text-align: left;
+			input, select {
+				text-align: left;
+			}
+		}
+	}
+}
+
+/* Form Center */
+
+.form-center {
+	text-align: center;
+	&.spaced {
+		margin-top: 25px;
+	}
+	.form-group {
+		text-align: center;
+		label, .form-item {
+			text-align: center;
+			input, select {
+				text-align: center;
+			}
+		}
+		.error-message {
+			text-align: center;
+			&:before {
+				left: initial;
+				right: 50%;
+				margin-right: -15px;
+			}
+		}
+	}
+}
+
+/* Form Right */
+
+.form-right {
+	.form-group {
+		text-align: right;
+		label, .form-item {
+			text-align: right;
+			input, select {
+				text-align: right;
+			}
+		}
+		.error-message {
+			text-align: right;
+			&:before {
+				left: initial;
+				right: 15px;
+			}
+		}
+	}
+}
+
+/* Form Bordered */
+
+.form-bordered {
+	margin-top: 20px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	background: @white2;
+	label {
+		&.sublabel {
+			line-height: 10px;
+		}
+		a {
+			font-family: @mainFont-semibold;
+			color: @mainBG3;
+			text-transform: initial;
+		}
+	}
+}
+
+/* Form Actions */
+
+.form-actions {
+	position: relative;
+	padding: 10px;
+	border: 1px solid @greyD;
+	background: @white2;
+	text-align: right;
+	&.form-actions-return {
+		text-align: left;
+	}
+	&.form-actions-title {
+		&:after {
+		    content: 'Acciones';
+		    position: absolute;
+		    top: -11px;
+		    left: 10px;
+		    display: inline-block;
+		    vertical-align: middle;
+		    padding: 3px 6px 4px 6px;
+			background: @red;
+			font-family: @mainFont-semibold;
+			font-size: 10px;
+			color: @white;
+			text-transform: uppercase;
+		}
+	}
+}
+
+/* Form Subtitle */
+
+.form-subtitle {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 15px;
+	background: @grey9;
+    border-left: 1px solid @white;
+    border-right: 1px solid @white;
+	font-family: @mainFont-bold;
+	font-size: @text;
+	color: @white;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+/* Form Specs */
+
+.form-specs {
+	display: inline-block;
+	vertical-align: middle;
+}

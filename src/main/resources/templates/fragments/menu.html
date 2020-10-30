@@ -1,0 +1,256 @@
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div th:fragment="menu">
+    <header class="header-small">
+        <img alt="Logo" th:src="@{/images/logo-horizontal.svg}" />
+        <form
+            class="user"
+            th:action="@{/logout}"
+            method="get">
+            <div
+                class="user-opt-lay"
+                sec:authorize="isAuthenticated()">
+                <div class="user-opt user-opt-info">
+                    <span sec:authentication="name"></span>
+                </div>
+                <div class="user-opt user-opt-logout">
+                    <a th:href="@{/logout}">Logout</a>
+                </div>
+            </div>
+            <img
+            	alt="Usuario"
+                class="user-opt-img"
+                th:src="@{/images/icons/user.svg}" />
+        </form>
+    </header>
+    <header class="header-small">
+        <div class="header-left">
+            <img alt="Logo" th:src="@{/images/logo-horizontal.svg}" />
+        </div>
+        <div class="header-center">
+            <span class="app-name">Becas Universidad</span>
+        </div>
+        <div class="header-right">
+            <img alt="Logo" th:src="@{/images/FondosFeder.png}" style="height : 65px;"/>
+        </div>
+    </header>
+    <div class="layout title">
+        <div
+            class="menu menu-only-user"
+            id="nav-menu">
+            <div class="menu-items">
+                <div class="menu-layout">
+                    <div class="icons-layout">
+                        <div
+                            class="close-icon"
+                            id="mobile-close">
+                            <img alt="Cerrar" th:src="@{/images/icons/close-w.svg}" />
+                        </div>
+                        <div class="return-icon">
+                            <img alt="Volver" th:src="@{/images/icons/return-w.svg}" />
+                        </div>
+                    </div>
+                    <ul>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a>Administración</a>
+                            <div class="submenu-items">
+                                <div class="submenu-layout">
+                                    <ul>
+                                        <li>
+                                            <a th:href="@{/indice/usuarios}">Usuarios</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a>Archivos</a>
+                            <div class="submenu-items">
+                                <div class="submenu-layout">
+                                    <ul>
+                                        <li>
+                                            <a th:href="@{/indice/deducciones}">Deducciones</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/convocatorias}">Convocatorias</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/casillas}">Casillas Renta</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/documentoconvocatoria}">Documentos Convocatoria</a>
+                                        </li>
+                                        <!-- <li> 
+                                             <a th:href="@{/plantillas_listado.html}">Plantillas Mail</a>
+                                             </li> -->
+                                        <!--                                         <li th:if="${convocatoriaActiva==null || convocatoriaActiva?.tipoConvocatoria == 'AME' || convocatoriaActiva?.tipoConvocatoria == 'MOV'}"> -->
+                                        <li>
+                                            <a th:href="@{/indice/titulos}">Titulaciones</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/tramos}">Tramos</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li sec:authorize="hasRole('ROLE_USER')">
+                            <a>Procesos</a>
+                            <div class="submenu-items">
+                                <div class="submenu-layout">
+                                    <ul>
+                                        <li>
+                                            <a th:href="@{/convocatoria/cambiar}">Cambiar Convocatoria</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/umbral}">Cálculo de umbrales económicos</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/solicitudes}">Solicitudes de ingreso</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/solicitudesTto}">Solicitudes de ingreso TTO</a>
+                                        </li>
+                                        <!-- <li>
+                                            <a th:href="@{/traspasosolweb.html}">traspasos de solicitudes web</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/consultatelematica.html}">carga consultas telemáticas</a>
+                                        </li> -->
+                                        <li>
+                                            <a th:href="@{/indice/comunicacionAEAT}">Comunicación con AEAT</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/comunicaciones/baremacion}">Comunicación UU baremación académica</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/comunicaciones/universidad}">Comunicación con Universidad</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/ordenacionSolicitud}">Ordenación de Solicitudes</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/ficherosMultiterceros}">Generar Fichero Multiterceros</a>
+                                        </li>
+                                       <!--  <li>
+                                            <a th:href="@{/requerimientos}">Comunicar Requerimientos</a>
+                                        </li> -->
+                                        <li>
+                                            <a th:href="@{/indice/validarPagos}">Validar y comunicar pagos</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/indice/actualizarCuentaBancaria}">Actualizar cuentas bancarias</a>
+                                        </li>
+                                        <!--<li>
+                                            <a th:href="@{/solicitudesPerdidaEficacia}">Solicitudes en situación "Pérdida de eficacia"</a>
+                                        </li>  -->
+                                        <!-- <li>
+                                            <a th:href="@{/#}">Actualización de datos ETT</a>
+                                        </li> -->
+                                        <li>
+                                            <a th:href="@{/indice/envios}">Mandar email</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li sec:authorize="hasRole('ROLE_USER')">
+                            <a>Informes</a>
+                            <div class="submenu-items">
+                                <div class="submenu-layout">
+                                    <ul>
+                                        <li>
+                                            <a th:href="@{/informe/informeGeneral}">Informe General</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informes?numeroInforme=0}">Informe de Subsanación</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informes?numeroInforme=3}">Listado General de documentación</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informes?numeroInforme=4}">Informe de Requerimiento</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informe/informeBaremacion}">Informe de Baremación</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informe/informeSolicitudPorClave}">Informe de Solicitudes por Clave</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informe/informeMasivoDeSolicitudes}">Impresión Masiva de Solicitudes</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informe/informeExportarExcel}">Exportar datos a excel</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informe/informeRelacionCompletaSolicitudes}">Relación completa de Solicitudes</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informes?numeroInforme=13}">Listado de Otras Ayudas</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informes?numeroInforme=14}">Listado de direcciones de Solicitantes</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informes?numeroInforme=15}">Listado de reintegros</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informes?numeroInforme=16}">Exportar a Excel Aceptaciones Web</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informes?numeroInforme=17}">Exportar a Excel Datos Personales</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/informes?numeroInforme=18}">Exportar a Excel Baremación Académica</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a>Documentos</a>
+                            <div class="submenu-items">
+                                <div class="submenu-layout">
+                                    <ul>
+                                        <li>
+                                            <a th:href="@{/informe/informeDocumentoSolicitudes}">Generar Anexo Web</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <form
+                class="user"
+                th:action="@{/logout}"
+                method="get">
+                <div
+                    class="user-opt-lay"
+                    sec:authorize="isAuthenticated()">
+                    <div class="user-opt user-opt-info">
+                        <span
+                            style="text-transform: lowercase"
+                            sec:authentication="name"></span>
+                    </div>
+                    <div class="user-opt user-opt-logout">
+                        <a th:href="@{/logout}">Desconectar</a>
+                    </div>
+                </div>
+                <img
+                	alt="Usuario"
+                    class="user-opt-img"
+                    th:src="@{/images/icons/user.svg}" />
+            </form>
+        </div>
+    </div>
+    <div
+        class="menu-icon"
+        id="mobile-menu">
+        <img alt="menu" th:src="@{/images/icons/menu.svg}" />
+    </div>
+</div>
+</html>

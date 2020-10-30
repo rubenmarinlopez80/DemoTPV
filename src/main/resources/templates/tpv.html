@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"></meta>
-    <title>pago</title>
+    <title>Pago TPV</title>
     <style type="text/css">
 
         #container{
@@ -14,6 +14,7 @@
             text-align: center;
             vertical-align: middle;
             padding: 5%;
+            background-color: cornflowerblue;
         }
         #intentos{
             color: red;
@@ -22,26 +23,84 @@
         #log{
             width: 40%;
         }
+       
+
+
+#cabecera{
+        height:20%;
+        margin-bottom: 5%;
+}
+#menu{
+        height:10%;
+}
+#izquierda{
+        height:50%;
+        float:left;
+        width:50%;
+        text-align: right;
+        margin-bottom: 1%;
+}
+#derecha{
+        height:50%;
+        float:right;
+        width:50%;
+}
+#eti{
+        height:50%;
+        float:left;
+        width:100%;
+        text-align: right;
+        margin-bottom: 5%;   
+        display: block;
+}
+#etiCampo{
+        height:50%;
+        float:left;
+        width:100%;
+        text-align: left;
+        margin-bottom: 4%;   
+        display: block;
+        margin-left: 1%;
+}
+#pie{
+        height:20%;
+        clear:both;
+}
 
     </style>
 </head>
 <body>
 <div id="container">
-    <img id="log" src="images/login.png"></img>
-       <form action="/pruebas/tpvamspago" method="POST">
-        <label>Importe</label>
-        <input type="text" name="importe"/><br/><br/>
-        <label>TipoMoneda</label>
-        <input type="text" name="tipoMoneda"/><br/><br/>
-        <label>UrlOk</label>
-        <input type="text" name="urlOk"/><br/><br/>
-        <label>UrlNok</label>
-        <input type="text" name="urlNok"/><br/><br/>
-        <label>Idioma</label>
-        <input type="text" name="idioma"/><br/><br/>
-        <label>Descripcion</label>
-        <input type="text" name="descripcion"/><br/><br/>
-        <input type="submit" value="Entrar"/>
+      <img id="log" src="../images/logoDgaFondoApl1.gif"></img>
+       <form action="/tpvppademo/pruebas/tpvamspago" method="POST">
+        <div id="cabecera">Pago TPV PPA</div>
+        <div id="menu"></div>
+        <div id="izquierda">
+            <div id="eti"><label>Importe</label></div>
+            <div id="eti"><label>TipoMoneda</label></div>
+            <div id="eti"><label>UrlOk</label></div>
+            <div id="eti"><label>UrlNok</label></div>
+            <div id="eti"><label>Idioma</label></div>
+            <div id="eti"><label>Descripcion</label></div>
+
+        </div>
+        <div id="derecha">
+            <div id="etiCampo"><input type="text" name="importe"/> </div>
+      
+            <div id="etiCampo"><input type="text" name="tipoMoneda" value="978"/> </div>
+         
+            <div id="etiCampo"><input type="text" name="urlOk"/> </div>
+         
+             <div id="etiCampo"><input type="text" name="urlNok"/> </div>
+           
+             <div id="etiCampo"><input type="text" name="idioma" value="1"/> </div>
+          
+            <div id="etiCampo"><input type="text" name="descripcion"/> </div>
+
+        </div>
+       <div id="pie"> <input type="submit" value="Entrar"/></div>
+      
+       
     </form>
 </div>
 </body>

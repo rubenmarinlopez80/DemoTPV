@@ -1,0 +1,112 @@
+/************************* COMPONENTS / COMBO BOXES ******************************/
+
+.comboboxes {
+    display: flex;
+    align-items: center;
+    .comboboxes-select {
+        flex: 1;
+        select {
+            height: 200px;
+            padding: 0;
+            option {
+                padding: 4px 10px 4px 10px;
+            }
+            option:hover {
+                background: #EEEEEE;
+            }
+        }
+    }
+    .comboboxes-actions {
+        flex: 1;
+        max-width: 100px;
+        padding: 0 15px 0 14px;
+        text-align: center;
+        .comboboxes-action {
+            display: inline-block;
+            vertical-align: middle;
+            width: 40px;
+            height: 40px;
+            margin-bottom: 4px;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+                opacity: .7;
+            }
+            &#comboboxes-all-right {
+                background-image: url('../images/icons/right-all.svg');
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            &#comboboxes-right {
+                background-image: url('../images/icons/right.svg');
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            &#comboboxes-left {
+                background-image: url('../images/icons/left.svg');
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            &#comboboxes-all-left {
+                background-image: url('../images/icons/left-all.svg');
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Combo Boxes */
+
+    .comboboxes {
+        display: block;
+        .comboboxes-select, .comboboxes-actions {
+            min-width: 100%;
+            max-width: initial;
+        }
+        .comboboxes-actions {
+            padding: 15px;
+            .comboboxes-action {
+                display: inline-block;
+                vertical-align: middle;
+                width: 40px;
+                height: 40px;
+                margin-bottom: 4px;
+                text-align: center;
+                cursor: pointer;
+                &:hover {
+                    opacity: .7;
+                }
+                &#comboboxes-all-right {
+                    background-image: url('../images/icons/down-all.svg');
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                }
+                &#comboboxes-right {
+                    background-image: url('../images/icons/down.svg');
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                }
+                &#comboboxes-left {
+                    background-image: url('../images/icons/up.svg');
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                }
+                &#comboboxes-all-left {
+                    background-image: url('../images/icons/up-all.svg');
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    
+}

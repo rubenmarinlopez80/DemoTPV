@@ -1,0 +1,59 @@
+# https://dzone.com/articles/log4j-2-configuration
+Configuration:
+   name: Default
+  
+   Properties:
+      Property:
+         - name: app-name
+           value: tpvppademo
+         - name: log-path
+           value: "/logs/app/${app-name}/"
+
+   Appenders:
+      Console:
+         name: Console_Appender
+         target: SYSTEM_OUT
+         PatternLayout:
+            pattern: "[%clr{%d{${LOG_DATEFORMAT_PATTERN:-dd-MM-yyyy HH:mm:ss}}}{faint} %clr{%-5level}].oOo.  %clr{%logger}{cyan} -> %clr{%method}{faint} : %m%n{LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+    
+      RollingFile:
+         - name: RollingFile_Appender
+           fileName: ${log-path}/${app-name}.log
+           filePattern: "${log-path}/${app-name}.%d{yyyy-MM-dd}.log"
+           PatternLayout:
+             pattern: "[%clr{%d{${LOG_DATEFORMAT_PATTERN:-dd-MM-yyyy HH:mm:ss}}}{faint} %clr{%-5level}].oOo.  %clr{%logger}{cyan} -> %clr{%method}{faint} : %m%n{LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+           Policies:
+             SizeBasedTriggeringPolicy:
+               size: 10MB
+             TimeBasedTriggeringPolicy:
+               interval: 1
+               modulate: true
+           DefaultRollOverStrategy:
+               Delete:
+                 basePath: ${log-path}/
+                 maxDepth: 1
+                 IfFileName:
+                   glob: ${app-name}.*
+                 IfLastModified:
+                   age: 3d    
+          
+   Loggers:
+      Root:
+         level: error
+         additivity: false
+         AppenderRef:
+           - ref: Console_Appender
+           - ref: RollingFile_Appender
+      
+      Logger:
+        
+        - name: com.example.demo
+          level: all
+          additivity: false
+          AppenderRef:
+            - ref: Console_Appender
+              level: debug
+            - ref: RollingFile_Appender
+              level: debug
+        
+              

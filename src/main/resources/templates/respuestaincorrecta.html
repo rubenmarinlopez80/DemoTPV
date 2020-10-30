@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+PAgoIncorrecto
+<table>    
+<tr>    
+<td><h4>EStado: </h4></td>    
+<td><h4 th:text="${pagoResponse.estado}"></h4></td>    
+</tr>    
+<tr>    
+<td><h4>Id Pago: </h4></td>    
+<td><h4 th:text="${pagoResponse.idPeticionPago}"></h4></td>    
+</tr>    
+</table>   
+</body>
+</html>

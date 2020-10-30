@@ -1,0 +1,32 @@
+/************************* COMPONENTS / GRAPHS / PROGRESS ******************************/
+
+.progressbar {
+	font-size: 0;
+	.progressbar-info, .progressbar-lay {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.progressbar-info {
+		width: 20%;
+		padding: 15px 15px 15px 0;
+		font-family: @mainFont-bold;
+		font-size: @text;
+	}
+	.progressbar-lay {
+		width: 80%;
+		padding: 0 10px;
+		border-left: 1px solid #ccc;
+	}
+	.progressbar-line {
+		max-width: 100%;
+		height: 80px;
+		margin: 0 auto
+	}
+}
+
+.highcharts-container {
+    overflow: visible !important;
+    svg:not(:root) {
+    	overflow: visible !important;
+    }
+}

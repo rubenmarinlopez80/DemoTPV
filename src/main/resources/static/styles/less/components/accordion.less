@@ -1,0 +1,28 @@
+/************************* COMPONENTS / ACCORDION ******************************/
+
+.accordion {
+	&.panel-group {
+		margin-bottom: 0;
+		.panel {
+			border-radius: 0;
+			box-shadow: none;
+			-webkit-box-shadow: none;
+			.panel-heading {
+				border-radius: 0;
+				.panel-title {
+					a {
+						font-family: @mainFont-bold;
+						font-size: 14px;
+						text-transform: uppercase;
+					}
+				}
+			}
+			.panel-collapse {
+				.panel-body {
+					font-family: @mainFont-light;
+					font-size: @text;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+
+<project name="tpvppademo" default="all" basedir=".">
+
+	<property file="build.properties" />
+
+	<property name="dist.home" value="${basedir}/dist" />
+	<property name="build.home" value="${basedir}/build" />
+	<property name="buildApp.home" value="${basedir}/${ant.project.name}/${ant.project.name}War/build" />
+	<property name="war.home" value="${basedir}/${ant.project.name}/${ant.project.name}War" />
+	<property name="webapp.home" value="${basedir}/web/WEB-INF" />
+	<property name="src.home" value="./src" />
+
+	<property name="srv.lib" value="" />
+	<property name="cmn.lib" value="" />
+
+	<property name="compile.debug" value="true" />
+	<property name="compile.deprecation" value="false" />
+	<property name="compile.optimize" value="true" />
+
+	<path id="classpath.ref">
+		<pathelement path="${classpath}" />
+		<fileset dir="./lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${srv.lib}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${cmn.lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<path id="base.path">
+		<pathelement path="${classpath}" />
+		<fileset dir="lib">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="classes" />
+	</path>
+
+
+	<!--**************************** LANZAR TODO ***************************** -->
+	<target name="all">
+		<ant target="borrar" />
+		<ant target="directorios" />
+		<ant target="compile" />
+		<ant target="copiar_war" />
+		<ant target="copiar_ear" />
+		<ant target="j2ee-ear" />
+		<ant target="copiar_intragracion_ast" />
+		<!-- <ant target="javadoc" /> -->
+		<ant target="borrar_temp" />
+		<!--<ant target="eartoserver"/> -->
+	</target>
+
+	<target name="borrar">
+		<delete dir="${build.home}" />
+		<delete dir="${project.basedir}/lib" />
+	</target>
+	<!--***** Elimina los directorios temporales utilizados para la generacion 
+		del EAR ***** -->
+	<target name="borrar_temp">
+		<delete dir="${build.home}/${ant.project.name}War" />
+		<delete dir="${build.home}/META-INF" />
+		<delete dir="${build.home}/APP-INF/lib" />
+		<delete dir="${build.home}/APP-INF" />
+		<delete dir="${build.home}/properties" />
+		<!--<delete dir="${build.home}/classes"/> -->
+	</target>
+
+	<target name="directorios">
+		<mkdir dir="${build.home}" />
+		<mkdir dir="${build.home}/${ant.project.name}War" />
+		<mkdir dir="${build.home}/${ant.project.name}War/WEB-INF" />
+		<mkdir dir="${build.home}/${ant.project.name}War/WEB-INF/lib" />
+		<mkdir dir="${build.home}/${ant.project.name}War/WEB-INF/classes" />
+		<mkdir dir="${build.home}/${ant.project.name}War/WEB-INF/classes/META-INF" />
+		<mkdir dir="${build.home}/classes" />
+		<mkdir dir="${build.home}/META-INF" />
+		<mkdir dir="${build.home}/APP-INF" />
+		<mkdir dir="${build.home}/APP-INF/lib" />
+		<mkdir dir="${dist.home}" />	
+		<mkdir dir="${dist.home}/properties" />		
+		<mkdir dir="${dist.home}/properties/des" />		
+		<mkdir dir="${dist.home}/properties/pre" />		
+		<mkdir dir="${dist.home}/properties/pro" />	
+	</target>
+
+	<!--************************* Compilar *********************************** -->
+	<target name="compile" description="Compile Java sources">
+		<!-- Compile Java classes as necessary -->
+
+		<javac srcdir="${src.home}/main/" destdir="${build.home}/classes"
+			debug="${compile.debug}" deprecation="${compile.deprecation}"
+			optimize="${compile.optimize}" encoding="iso-8859-1" includeantruntime="false">
+			<classpath refid="classpath.ref"/>
+			<exclude name="${src.home}/test/java/com/example/demo/**"/>
+		</javac>
+
+	</target>
+
+
+	<!--************************** Copiar compilados ************************* -->
+	<target name="copiar_war">
+		<echo message="Copiando ficheros del War ..." />
+
+		<copy todir="${build.home}/${ant.project.name}War/WEB-INF/classes"
+			verbose="true" overwrite="true">
+			<fileset dir="${build.home}/classes">
+				<include name="**/*.class" />
+				<include name="META-INF/**.*" />
+				
+			</fileset>
+		</copy>		
+		
+	 <!--************************** Copiar archivos de proipiedades ************************* -->		
+	 <!--************************** Excluimos el archivo de propiedades porque se lee de una ubicación externa ******************** -->			
+		<copy todir="${build.home}/${ant.project.name}War/WEB-INF/classes" verbose="true" overwrite="true">
+			<fileset dir="${basedir}/src/conf/properties">	
+				<!-- Excluimos solo si vamos a leer las propiedades de un aubicación externa -->
+				<!--<exclude name="application.yml" />
+				<exclude name="logback.xml" /> -->									
+			</fileset>	
+		</copy>
+		
+		<copy todir="${build.home}/${ant.project.name}War/WEB-INF/lib" verbose="true"
+			overwrite="true">
+			<fileset dir="${basedir}/lib">
+				<!--<include name="**/*.jar" /> <exclude name="**/*aopalliance-1.0.jar" /> 
+					 <exclude name="**/*commons-codec-1.2.jar" /> <exclude name="**/*commons-digester-2.0.jar" />
+					 <exclude name="**/*commons-discovery-0.2.jar" /> <exclude name="**/*commons-logging-api-1.1.jar" /> 
+					 <exclude name="**/*jta-1.1.jar" /> <exclude name="**/*log4j-1.2.14.jar" />
+					 <exclude name="**/*persistence-api-1.0.jar" /> -->
+			</fileset>
+		</copy>
+		<copy todir="${build.home}/${ant.project.name}War/WEB-INF/classes" verbose="true" overwrite="true">
+			<fileset dir="${basedir}/src/main/resources">
+				<include name="static/fonts/*.*" />
+				<include name="static/scripts/*.*" />
+				<include name="static/images/*.*" />
+				<include name="static/images/icons/*.*" />
+				<include name="static/images/slider/*.*" />
+				<include name="static/styles/*.*" />
+				<include name="static/styles/css/*.*" />
+				<include name="static/styles/custom/*.*" />
+				<include name="static/styles/custom/fonts/*.*" />
+				<include name="static/styles/less/*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${build.home}/${ant.project.name}War/WEB-INF/classes" verbose="true" overwrite="true">
+			<fileset dir="${basedir}/src/main/resources">
+				<include name="templates/*.*" />
+				<include name="templates/fragments/*.*" />
+			</fileset>
+		</copy>
+		
+		<copy file="./src/main/webapp/WEB-INF/weblogic.xml"
+			tofile="${build.home}/${ant.project.name}War/WEB-INF/weblogic.xml" />
+		
+		<copy file="./src/main/webapp/WEB-INF/dispatcherServlet-servlet.xml"
+					tofile="${build.home}/${ant.project.name}War/WEB-INF/dispatcherServlet-servlet.xml" />
+
+		<copy todir="${build.home}/${ant.project.name}War" verbose="true"
+			overwrite="true">
+			<fileset dir="./web"
+				excludes="**/tags/**,**/*.properties,**/*.bak,**/log4j-1.2.14.jar" />
+		</copy>
+
+	</target>
+
+	<target name="copiar_ear">
+		<echo message="Copiando ficheros del EAR ..." />
+
+		<copy todir="${build.home}/META-INF" verbose="true"
+			overwrite="true">
+			<fileset dir="./src/conf">
+				<exclude name="**/*data-sources.xml" />
+				<exclude name="**/*weblogic.xml" />
+				<exclude name="**/*ogback.xml" />
+				<exclude name="**/*.yml" />
+			</fileset>
+		</copy>
+
+	</target>
+
+	<!--*************************** crear javaDocs *************************** -->
+	<target name="javadoc">
+		<javadoc packagenames="*.*" sourcepath="./src/java"
+			destdir="./build/api" encoding="UTF-8">
+			<classpath refid="classpath.ref" />
+		</javadoc>
+	</target>
+
+	<target name="copiar_intragracion_ast">
+		<echo message="Copiando ficheros para IC AST ..." />
+		
+		<copy file="${build.home}/${ant.project.name}.ear" tofile="${dist.home}/${ant.project.name}.ear"/>
+		
+		<copy todir="${dist.home}/properties/des" verbose="true" overwrite="true">
+			<fileset dir="./src/conf/properties">
+				<exclude name="**/*local.yml" />
+				<!--<exclude name="**/*ogback.xml" />-->				
+				<exclude name="**/*weblogic.xml" />	
+			</fileset>
+		</copy>
+		<copy todir="${dist.home}/properties/pre" verbose="true" overwrite="true">
+			<fileset dir="./src/conf/properties">				
+				<exclude name="**/*weblogic.xml" />	
+			</fileset>
+		</copy>
+		<copy todir="${dist.home}/properties/pro" verbose="true" overwrite="true">
+			<fileset dir="./src/conf/properties">			
+				<exclude name="**/*weblogic.xml" />	
+			</fileset>
+		</copy>
+		<copy todir="${dist.home}" verbose="true" overwrite="true" failonerror="false">
+			<fileset dir="./setup">
+				<include name="compartido/**"/>
+			</fileset>
+		</copy>	
+	</target>
+
+	<!--************************* Generar EAR ********************************* -->
+	<target name="j2ee-ear" depends="web-war">
+
+		<jar jarfile="./build/${ant.project.name}.ear"
+			manifest="./src/conf/MANIFEST.MF">
+			<fileset dir="./build" includes="${ant.project.name}.war" />
+			<fileset dir="./build" includes="META-INF/*.xml" />
+		</jar>
+		<echo message="FINISHED: ear generado ..." />
+	</target>
+
+
+	<target name="web-war">
+		<jar jarfile="./build/${ant.project.name}.war"
+			manifest="./src/conf/MANIFEST.MF">
+			<fileset dir="./build/${ant.project.name}War" includes="**" />
+
+		</jar>
+	</target>
+</project>

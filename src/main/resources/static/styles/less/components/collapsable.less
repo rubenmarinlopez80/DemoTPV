@@ -1,0 +1,86 @@
+/************************* COMPONENTS / COLLAPSABLE ******************************/
+
+.collapsable {
+	&.panel-group {
+		margin-bottom: 0;
+		.panel {
+			border: none;
+			border-radius: 0;
+			box-shadow: none;
+			-webkit-box-shadow: none;
+			.panel-heading {
+				padding: 0;
+				background: transparent;
+				border-radius: 0;
+				.panel-title {
+					a {
+						display: inline-block;
+						vertical-align: middle;
+						padding: 10px 15px;
+						background: @iconBG1;
+						font-family: @mainFont-bold;
+						font-size: 14px;
+						color: @white;
+						text-transform: uppercase;
+						&:hover {
+							color: @greyE;
+						}
+					}
+				}
+			}
+			.panel-collapse {
+				font-family: @mainFont-light;
+				font-size: @text;
+				.list-group {
+					border: none;
+					.list-group-item {
+						margin: 5px 0;
+						border: 1px solid @greyE;
+						&:first-child {
+							margin-top: 15px;
+						}
+						&:last-child {
+							margin-bottom: 15px;
+						}
+						&:before {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.nav-tabs {
+	& > li {
+		&.active {
+			& > a, & > a:focus, & > a:hover {
+				font-family: @mainFont-bold;
+			}
+		}
+		a {
+			&:hover {
+				color: @mainBG1;
+			}
+		}
+	}
+}
+
+.tab-content {
+    padding: 30px 30px 15px 30px;
+    border-left: 1px solid @greyD;
+    border-right: 1px solid @greyD;
+    border-bottom: 1px solid @greyD;
+}
+
+@media (max-width: 767px) {
+	.nav-tabs {
+		& > li {
+			display: inline-block;
+			vertical-align: middle;
+			float: none;
+			margin-bottom: 0;
+		}
+	}
+}
