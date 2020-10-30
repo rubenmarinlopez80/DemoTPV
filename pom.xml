@@ -177,6 +177,7 @@
             </plugin>
 			
 		</plugins>
+		<finalName>mytpv</finalName>
 	</build>
 
 
