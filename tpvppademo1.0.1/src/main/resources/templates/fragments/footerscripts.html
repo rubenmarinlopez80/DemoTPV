@@ -1,0 +1,8 @@
+<div th:fragment="footer">
+	<footer class="foot-fixed">
+            <div class="copy">Copyright © <span>Gobierno de Aragón</span> 2020 v<span th:text="${T(es.aragon.bceme.utilities.Constantes).VERSION_API}" th:remove="tag"></span> (<span class="infoMaquina" th:if="${@environment.getActiveProfiles()[0] == 'local'}">Local</span>
+	    	<span class="infoMaquina" th:if="${@environment.getActiveProfiles()[0] == 'mi'}">Desarrollo</span><span class="infoMaquina" th:if="${@environment.getActiveProfiles()[0] == 'me'}">Preproducción</span>
+	    	<span class="infoMaquina" th:if="${@environment.getActiveProfiles()[0] == 'mo'}">Producción</span> - <span class="infoMaquina" th:text="${T(es.aragon.bceme.utilities.SomeUtilsTto).getHostname()}"></span>)</div>
+    </footer>
+</div>
+

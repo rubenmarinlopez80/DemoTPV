@@ -1,0 +1,63 @@
+/************************* COMPONENTS / TABS ******************************/
+
+.tabs-layout {
+    & > .nav-tabs {
+        margin: 0;
+        border: none;
+        & > li {
+            margin-right: 1px;
+            margin-bottom: 5px;
+            border-bottom: 4px solid rgba(255, 255, 255, 0);
+            &.open {
+                border-bottom: 1px solid #d53641;
+                & > a {
+                    background: none;
+                    border: 0;
+                    color: #333333;
+                    &:hover {
+                        background-color: #ffffff;
+                    }
+                    i {
+                        color: #a6a6a6;
+                    }
+                }
+                .dropdown-menu {
+                    margin-top: 0;
+                }
+            }
+            &.active {
+                border-bottom: 4px solid #d53641;
+                position: relative;
+                & > a {
+                    border: 0;
+                    color: #333333;
+                    & > i {
+                        color: #404040;
+                    }
+                }
+            }
+            & > a {
+                margin-right: 0;
+                padding-top: 0;
+                padding-bottom: 5px;
+                border: 0;
+                color: #737373;
+                &:hover {
+                    background-color: #ffffff;
+                }
+                & > i {
+                    color: #a6a6a6;
+                }
+            }
+        }
+    }
+    & > .tab-content {
+        margin-top: -3px;
+        padding: 15px 0 0 0;
+        border: 0;
+        border-top: 1px solid #eee;
+        .tab-pane {
+            padding: 15px 0 0 0;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: header"></head>
+<body>
+ <div th:replace="fragments/menu :: menu"></div>
+<div>
+Resultado del Pago:
+<br> 
+	<table>    
+	<tr>    
+	<td><h4><span th:text="${respuestaTPV.pagoCorrecto} ? 'Finalizado Correctamente' : 'NO Finalizado Correctamente'"> </h4></td>    
+	</tr>   
+	</table>
+<br> 
+</div>   
+
+<div>
+        <div><a href="/tpvppademo/">Pagina Inicial</a></div>
+        <div><a href="/tpvppademo/pruebas/pago">Pago de prueba sobre TPV </a></div>
+
+</div>
+</body>
+</html>

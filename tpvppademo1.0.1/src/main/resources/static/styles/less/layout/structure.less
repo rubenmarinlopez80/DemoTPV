@@ -1,0 +1,111 @@
+/************************* LAYOUT / STRUCTURE ******************************/
+
+* {
+    margin: 0;
+    padding: 0;
+
+    /* Scrollbar */
+
+    &::-webkit-scrollbar-track {
+        background-color: @scroll2;
+    }
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 6px;
+        background-color: @scroll2;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: @scroll1;
+    }
+
+    /* Selection */
+
+    &::-moz-selection {
+        background: @mainBG1;
+        color: @white;
+    }
+    &::selection {
+        background: @mainBG1;
+        color: @white;
+    }
+
+    /* Autofill */
+
+    input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+        background: #fff;
+    }
+
+    /* Links Styles */
+
+    a {
+        color: @title;
+        text-decoration: none;
+        cursor: pointer;
+        &:link, &:visited, &:active {
+            color: @title;
+            text-decoration: none;
+        }
+        &:hover {
+            color: @mainBG1;
+            text-decoration: none;
+        }
+    }
+
+    &:focus {
+        outline:0;
+    }
+}
+
+html {
+
+    background: @white;
+
+    /* Body */
+
+    body.with-menu-just-form{
+        padding: 150px 0 0 0;
+    }
+    
+    body {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        height: auto;
+        padding: 110px 0 0 0;
+        background: @white;
+        font-family: @mainFont, helvetica, verdana, tahoma, sans-serif;
+        font-size: @text;
+        cursor: default;
+        &.opened {
+            overflow: hidden;
+        }
+        &.test {
+            background-image: url('../images/test.png');
+        }
+        &.dev {
+            background-image: url('../images/dev.png');
+        }
+        &.no-menu {
+            .menu {
+                .menu-items {
+                    .menu-layout {
+                        ul {
+                            display: none;
+                        }
+                    }
+                }
+                .user {
+                    width: 100%;
+                }
+            }
+            .menu-icon {
+                display: none;
+            }
+        }
+    }
+
+}
+
+.clear {
+    clear: both;
+}

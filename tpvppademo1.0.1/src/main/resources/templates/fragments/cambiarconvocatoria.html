@@ -1,0 +1,29 @@
+<div th:fragment="cambiarConvocatoria">
+    <div class="form-group form-inline form-big">
+        <div
+            class="form-group form-inline form-big"
+            th:if="${convocatoriaActiva != null}">
+            <p
+                class="info-box-title"
+                th:text="'Convocatoria: ' + ${convocatoriaActiva.numeroConvocatoria}">Número Convocatoria</p>
+            <p
+                class="info-box-subtitle"
+                th:text="${convocatoriaActiva.nombreConvocatoria}">Nombre Convocatoria</p>
+        </div>
+        <div
+            class="form-group form-inline form-big"
+            th:unless="${convocatoriaActiva !=null}">
+            <p class="info-box-title">Convocatoria</p>
+            <p class="info-box-subtitle">Seleccione una convocatoria</p>
+        </div>
+        <div
+            class="form-group form-inline form-big"
+            th:if="${ocultarBoton == null || ocultarBoton == false}">
+            <div class="form-right">
+                <a
+                    class="button"
+                    th:href="@{/convocatoria/cambiar}">Cambiar Convocatoria</a>
+            </div>
+        </div>
+    </div>
+</div>

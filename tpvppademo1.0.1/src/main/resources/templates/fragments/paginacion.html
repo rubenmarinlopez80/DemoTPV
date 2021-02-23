@@ -1,0 +1,41 @@
+<!-- Pagination Bar -->
+<div th:fragment="paginacion">
+    <div class="table-actions">
+    	<div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+        	<div class="lefted"></div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+	       	<div class="pagination" th:if="${page.totalElements gt 0}">
+	       		<div class="pages">
+	       			<span>
+	       				<span th:class="${page.firstPage} ? 'page-actual': ''" th:if="${page.firstPage}">&lt;&lt;</span>
+	       				<a th:if="${not page.firstPage}" th:href="@{${page.url}(page=0,size=${page.size})}" title="Ir al inicio">&lt;&lt;</a>
+	       			</span>
+	       			<span>
+	       				<span th:class="${page.hasPreviousPage}? '' : 'page-actual'" th:if="${not page.hasPreviousPage}">&lt;</span>
+	       				<a th:if="${page.hasPreviousPage}" th:href="@{${page.url}(page=${page.number-2},size=${page.size})}" title="Página anterior">&lt;</a>
+	       			</span>
+	       			<span th:each="item : ${page.items}" >
+	       				<span th:class="${item.current} ? 'page-actual' : ''" th:if="${item.current}" th:text="${item.number}">1</span>
+	      					<a th:if="${not item.current}" th:href="@{${page.url}(page=${item.number-1},size=${page.size})}">
+	      						<span th:text="${item.number}">1</span>
+	      					</a>
+	      				</span>
+	      				<span>
+	      					<span th:class="${page.hasNextPage} ? '' : 'page-actual'" th:if="${not page.hasNextPage}">&gt;</span>
+	      					<a th:if="${page.hasNextPage}" th:href="@{${page.url}(page=${page.number},size=${page.size})}" title="Página siguiente">&gt;</a>
+	      				</span>
+	      				<span>
+	      					<span th:class="${page.lastPage} ? 'page-actual' : ''" th:if="${page.lastPage}">&gt;&gt;</span>
+	      					<a th:if="${not page.lastPage}" th:href="@{${page.url}(page=${page.totalPages - 1},size=${page.size})}" title="Ir al final">&gt;&gt;</a>
+	      				</span>
+	       		</div>
+	         </div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+	         <div class="pageresults-head">
+	            <div class="results-v2">Se han encontrado <span th:text="${page.totalElements} + ' resultados'"></span></div>
+	         </div>
+		</div>
+    </div>
+</div>

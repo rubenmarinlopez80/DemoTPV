@@ -1,0 +1,58 @@
+/************************* COMPONENTS / SUBTITLES ******************************/
+
+section {
+	.subtitle {
+		margin: 0 0 20px 0;
+		padding: 15px 0 0 0;
+		border-bottom: 1px solid @greyE;
+		font-size: 0;
+		.subtitle-left, .subtitle-right, .subtitle-full {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.subtitle-left {
+			position: relative;
+			width: 50%;
+			margin-bottom: 10px;
+			.subtitle-breadcrumb-prev {
+				font-family: @mainFont-light;
+				color: @greyA;
+			}
+			.subtitle-breadcrumb-bar {
+				font-family: @mainFont;
+			}
+		}
+		.subtitle-right {
+			width: 50%;
+			text-align: right;
+			margin-bottom: 10px;
+			input, button, .button {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+		.subtitle-full {
+			position: relative;
+			width: 100%;
+			margin-bottom: 15px;
+			.subtitle-breadcrumb-prev {
+				font-family: @mainFont-light;
+				color: @greyA;
+			}
+			.subtitle-breadcrumb-bar {
+				font-family: @mainFont;
+			}
+		}
+		&.subtitle-alert {
+			margin-bottom: 0;
+			border: none;
+		}
+	}
+}
+
+
+.subtitle-convocatoria {
+	font-size: 18px;
+	color: @grey6;
+	font-family: @mainFont-semibold;
+}

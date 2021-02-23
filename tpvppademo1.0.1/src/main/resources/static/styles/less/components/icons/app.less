@@ -1,0 +1,46 @@
+/************************* COMPONENTS / ICONS / APP ******************************/
+
+.app-icon {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	width: 55px;
+	height: 55px;
+	background: @iconBG3;
+	border-radius: 5px;
+	text-align: center;
+	&:hover {
+		cursor: pointer;
+	}
+	.fa {
+		line-height: 55px;
+		font-size: 30px;
+		color: @white;
+		&.app-icon-fav {
+			position: absolute;
+			top: -7px;
+			right: -7px;
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			background: @greyB;
+			border-radius: 50%;
+			font-size: @text;
+			line-height: 20px;
+			cursor: pointer;
+			transition: .1s all linear;
+			&:hover {
+				background: @white;
+				color: @mainBG1;
+			}
+			&.marked {
+				background: @mainBG1;
+				color: @white;
+				&:hover {
+					background: @white;
+					color: @greyA;
+				}
+			}
+		}
+	}
+}

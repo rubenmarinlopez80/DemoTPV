@@ -1,0 +1,35 @@
+<!-- Pagination Bar -->
+<div th:fragment="paginacion2">
+    <div class="table-actions">
+        <div class="lefted"></div>
+       	<div class="pagination" th:if="${page2.totalElements gt 0}">
+       		<div class="pages">
+       			<span>
+       				<span th:class="${page2.firstPage} ? 'page-actual': ''" th:if="${page2.firstPage}">&lt;&lt;</span>
+       				<a th:if="${not page2.firstPage}" th:href="@{${page2.url}(page=0,size=${page2.size})}" title="Ir al inicio">&lt;&lt;</a>
+       			</span>
+       			<span>
+       				<span th:class="${page2.hasPreviousPage}? '' : 'page-actual'" th:if="${not page2.hasPreviousPage}">&lt;</span>
+       				<a  th:if="${page2.hasPreviousPage}" th:href="@{${page2.url}(page2=${page2.number-2},size=${page2.size})}" title="Página anterior">&lt;</a>
+       			</span>
+       			<span th:each="item : ${page2.items}" >
+       				<span th:class="${item.current} ? 'page-actual' : ''" th:if="${item.current}" th:text="${item.number}">1</span>
+      					<a  th:if="${not item.current}" th:href="@{${page2.url}(page=${item.number-1},size=${page2.size})}">
+      						<span th:text="${item.number}">1</span>
+      					</a>
+      				</span>
+      				<span>
+      					<span th:class="${page2.hasNextPage} ? '' : 'page-actual'" th:if="${not page2.hasNextPage}">&gt;</span>
+      					<a   th:if="${page2.hasNextPage}" th:href="@{${page2.url}(page=${page2.number},size=${page2.size})}" title="Página siguiente">&gt;</a>
+      				</span>
+      				<span>
+      					<span th:class="${page2.lastPage} ? 'page-actual' : ''" th:if="${page2.lastPage}">&gt;&gt;</span>
+      					<a  th:if="${not page2.lastPage}" th:href="@{${page2.url}(page=${page2.totalPages - 1},size=${page2.size})}" title="Ir al final">&gt;&gt;</a>
+      				</span>
+       		</div>
+        </div>
+        <div class="pageresults-head">
+            <div class="results-v2">Se han encontrado <span th:text="${page.totalElements} + ' resultados'"></span></div>
+         </div>
+    </div>
+</div>

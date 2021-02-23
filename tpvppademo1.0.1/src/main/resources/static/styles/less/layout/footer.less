@@ -1,0 +1,93 @@
+/************************* LAYOUT / FOOTER ******************************/
+
+footer {
+	display: table;
+	width: 100%;
+	height: 50px;
+	background: @white3;
+	font-size: 0;
+	text-align: center;
+	z-index: 40;
+	&.foot-fixed {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		height: auto;
+		z-index: 5500;
+		.copy {
+			padding: 10px;
+			box-shadow: 0 -1px 1px 0 rgba(0,0,0,.1);
+			font-family: @mainFont;
+			font-size: 11px;
+			color: @grey6;
+			text-align: center;
+			span {
+				font-family: @mainFont-bold;
+				text-transform: uppercase;
+			}
+		}
+	}
+	.manual, .copy, .logo {
+		display: table-cell;
+		vertical-align: middle;
+		width: 33.33333%;
+	}
+	.manual {
+		padding-left: 15px;
+		text-align: left;
+		a {
+			font-family: @mainFont-semibold;
+			font-size: 11px;
+			color: @mainBG1;
+			&:hover {
+				color: @grey7;
+			}
+		}
+	}
+	.copy {
+		font-family: @mainFont;
+		font-size: 11px;
+		color: @grey6;
+		text-align: center;
+		span {
+			font-family: @mainFont-bold;
+			text-transform: uppercase;
+		}
+	}
+	.logo {
+		padding-right: 15px;
+		text-align: right;
+		.footer-logo-1, .footer-logo-2 {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.footer-logo-1 {
+			height: 25px;
+		}
+		.footer-logo-2 {
+			height: 32px;
+			margin-left: 15px;
+		}
+	}
+}
+
+@media (max-width: 800px) {
+
+    footer {
+    	.manual, .copy, .logo {
+    		display: inline-block;
+    		vertical-align: middle;
+    		width: 100%;
+    		text-align: center;
+    	}
+    	.manual {
+    		padding-top: 20px;
+    		padding-bottom: 5px;
+    	}
+    	.logo {
+    		padding-top: 15px;
+    		padding-bottom: 20px;
+    	}
+    }
+
+}

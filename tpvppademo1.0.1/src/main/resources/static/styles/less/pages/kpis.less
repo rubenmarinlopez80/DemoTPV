@@ -1,0 +1,16 @@
+/************************* PAGES / KPIS ******************************/
+
+.kpi-block {
+	visibility: hidden;
+	opacity: 0;
+	height: 0;
+	overflow: hidden;
+	transform: translateY(100%);
+	&.kpi-show {
+		visibility: visible;
+		opacity: 1;
+		height: auto;
+		transform: translateY(0);
+		transition: .2s ease-out;
+	}
+}

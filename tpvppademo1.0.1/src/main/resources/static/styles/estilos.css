@@ -1,0 +1,30 @@
+.scroll-table-miembrosuf {
+	overflow-x:auto;
+	height:auto;
+	width:auto;
+}
+.input-autoWidth{
+    width:auto !important;
+}
+
+.popup .popup-layout.maxHeight {
+	min-height: 60vh;
+}
+
+.popup .popup-layout.maxHeight .popup-box {
+	min-height: calc(60vh - 155px);
+}
+
+footer.foot-fixed .copy span.infoMaquina {
+  font-family: OpenSans-Italic;
+  text-transform: capitalize;
+} 
+
+.entregado_improcedente{
+	 width: 20px;
+     height: 20px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: #dd0000;
+}

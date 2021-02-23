@@ -1,0 +1,81 @@
+/************************* COMPONENTS / FAVORITES ******************************/
+
+section {
+	.favs {
+		position: relative;
+		background: @mainBG2;
+		.fav-col {
+			margin-top: @height;
+			text-align: center;
+			cursor: default;
+			&:hover {
+				.fav-icon-edit, .fav-icon-delete {
+					opacity: 1;
+					cursor: pointer;
+				}
+				h2, h3 {
+					cursor: pointer;
+				}
+			}
+		}
+		.fav-category {
+			text-align: center;
+			.fav-layout {
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0 auto;
+				i {
+					display: inline-block;
+					vertical-align: middle;
+					margin-right: 5px;
+					font-size: 16px;
+					color: @mainBG1;
+				}
+			}
+		}
+		&.closed {
+			position: fixed;
+			top: -100%;
+			width: 100%;
+			z-index: 50;
+			visibility: hidden;
+			transition: .7s all linear;
+			.close-menu {
+				position: absolute;
+				bottom: -22px;
+				left: 50%;
+				margin-left: -60px;
+				width: 120px;
+				height: 20px;
+				background: @mainBG1;
+				border-bottom-left-radius: 20px;
+				border-bottom-right-radius: 20px;
+				color: @white;
+				text-align: center;
+				line-height: 18px;
+				visibility: hidden;
+				opacity: 0;
+				transition: .5s all linear;
+				cursor: pointer;
+			}
+			.row {
+				max-height: 400px;
+				margin: 0;
+				padding: 0 25px 25px 25px;
+				overflow: auto;
+			}
+			&.opened {
+				display: block;
+				top: 50px;
+				left: 0;
+				visibility: visible;
+				padding: 0;
+				border-bottom: 3px solid @mainBG1;
+				.close-menu {
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

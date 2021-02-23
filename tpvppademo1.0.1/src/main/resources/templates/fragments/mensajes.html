@@ -1,0 +1,55 @@
+<div
+    id="divMensajes"
+    th:fragment="mensaje">
+    <div
+        class="box-ok box-green"
+        text="OK"
+        th:if="${feedback ne null and feedback.codigoError == 1}">
+        <div th:each="texto : ${feedback.mensajes}">
+            <p
+                th:if="${texto ne null and !#strings.isEmpty(texto)}"
+                th:utext="${texto}">Operación realizada con éxito.</p>
+            <p th:if="${texto eq null or #strings.isEmpty(texto)}">Operación realizada con éxito.</p>
+        </div>
+    </div>
+    <div
+        class="box-warnings box-orange"
+        text="Advertencia"
+        th:if="${feedback ne null and feedback.codigoError == 2}">
+        <div th:each="texto : ${feedback.mensajes}">
+            <p
+                th:if="${texto ne null and !#strings.isEmpty(texto)}"
+                th:utext="${texto}">Algunos cambios han fallado.</p>
+            <p th:if="${texto eq null or #strings.isEmpty(texto)}">Se ha producido un error.</p>
+        </div>
+    </div>
+    <div
+        class="box-errors box-red"
+        text="Error"
+        th:if="${feedback ne null and feedback.codigoError == 3}">
+        <div th:each="texto : ${feedback.mensajes}">
+            <p
+                th:if="${texto ne null and !#strings.isEmpty(texto)}"
+                th:utext="${texto}">Se ha producido un error.</p>
+            <p th:if="${texto eq null or #strings.isEmpty(texto)}">Se ha producido un error.</p>
+        </div>
+    </div>
+    <div th:if="${recuperadas}" class="box-warnings box-green" text="Advertencia">
+        <p th:text="'Se han recuperado ' + ${numeroSolicitudes} + ' solicitudes'"></p>
+    </div>
+    <div th:if="${recuperadas} != null and ${recuperadas} == false" class="box-warnings box-green" text="Advertencia">
+        <p>No se ha recuperado ninguna solicitud</p>
+    </div>
+    <div th:if="${procesadas}" class="box-warnings box-green" text="Advertencia">
+        <p th:text="'Se han procesado ' + ${numeroSolicitudes} + ' solicitudes'"></p>
+    </div>
+    <div th:if="${procesadas} != null and ${procesadas} == false" class="box-warnings box-green" text="Advertencia">
+        <p>No se ha procesado ninguna solicitud</p>
+    </div>
+    <div th:if="${postprocesadas}" class="box-warnings box-green" text="Advertencia">
+        <p th:text="'Se han postprocesado ' + ${numeroSolicitudes} + ' solicitudes'"></p>
+    </div>
+    <div th:if="${postprocesadas} != null and ${postprocesadas} == false" class="box-warnings box-green" text="Advertencia">
+        <p>No se ha postprocesado ninguna solicitud</p>
+    </div>
+</div>

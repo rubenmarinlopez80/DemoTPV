@@ -1,0 +1,113 @@
+/************************* COMPONENTS / FORMS / FIELDSET ******************************/
+
+/* Fieldset Layout */
+
+.fieldset-layout {
+	padding: 0;
+}
+
+/* Fieldset */
+
+.fieldset {
+	position: relative;
+    padding: 20px 20px 10px 20px;
+	border: 1px dashed @greyC;
+	&:before {
+		content: attr(data);
+		position: absolute;
+		top: -12px;
+		left: 8px;
+		padding: 0 10px;
+		background: @white;
+		font-family: @mainFont-bold;
+		font-size: 15px;
+		font-weight: normal;
+		color: @mainBG1;
+		text-transform: uppercase;
+	}
+	&.fieldset-noborder {
+		background: @grey7;
+		border: none;
+		.form-group {
+			label {
+				color: @white;
+			}
+			.form-item {
+				input {
+					border-bottom: 1px solid @greyA;
+					color: @greyE;
+				}
+				::-webkit-input-placeholder {
+				    color: @greyE;
+				}
+				:-moz-placeholder {
+				   color: @greyE;
+				   opacity: 1;
+				}
+				::-moz-placeholder {
+				   color: @greyE;
+				   opacity: 1;
+				}
+				:-ms-input-placeholder {
+				   color: @greyE;
+				}
+				::-ms-input-placeholder {
+				   color: @greyE;
+				}
+			}
+		}
+	}
+}
+
+/* Fieldset Variante 2 */
+
+.fieldset-v2 {
+	position: relative;
+    padding: 20px 20px 10px 20px;
+	border-top: 1px solid @greyC;
+	&:before {
+		content: attr(data);
+		position: absolute;
+		top: -12px;
+		left: 8px;
+		padding: 0 10px;
+		background: @white;
+		font-family: @mainFont-bold;
+		font-size: 15px;
+		font-weight: normal;
+		color: @mainBG1;
+		text-transform: uppercase;
+	}
+	&.fieldset-noborder {
+		background: @grey7;
+		border: none;
+		.form-group {
+			label {
+				color: @white;
+			}
+			.form-item {
+				input {
+					border-bottom: 1px solid @greyA;
+					color: @greyE;
+				}
+				::-webkit-input-placeholder {
+				    color: @greyE;
+				}
+				:-moz-placeholder {
+				   color: @greyE;
+				   opacity: 1;
+				}
+				::-moz-placeholder {
+				   color: @greyE;
+				   opacity: 1;
+				}
+				:-ms-input-placeholder {
+				   color: @greyE;
+				}
+				::-ms-input-placeholder {
+				   color: @greyE;
+				}
+			}
+		}
+	}
+}

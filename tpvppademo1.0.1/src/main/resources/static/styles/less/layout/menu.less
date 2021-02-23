@@ -1,0 +1,408 @@
+.menu {
+    position: relative;
+    background:#eee;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,0.2);
+    font-size: 0;
+    .menu-items {
+        display: inline-block;
+        vertical-align: middle;
+        width: 80%;
+        height: 100%;
+        .menu-layout {
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+            ul {
+                list-style: none;
+                display: inline-block;
+                vertical-align: middle;
+                height: 100%;
+                margin-bottom: 0;
+                border: none;
+                font-size: 0;
+            }    
+                li {
+                    display: inline-block;
+                    vertical-align: middle;
+                    position: relative;
+                    height: 100%;
+                    padding: 0;
+                    font-size: 18px;
+                    transition: 0.1s all linear;
+                    &:hover , &:active {
+                        background: #757575;
+                        color: @white;
+                        a {
+                            color: #fff;
+                        }
+                    }                      
+                }
+                    a {
+                        display: inline-block;
+                        vertical-align: middle;
+                        height: 100%;
+                        padding: 5px 21px 6px 21px;
+                        font-family: @mainFont-bold;
+                        font-size: @text;
+                        color: @grey6;
+                        line-height: 30px;
+                        cursor: default;
+                        &:hover, &:active {
+                            color: @white;
+                        }
+                                            
+                    } // fin de primer nivel de menú (barra)
+                    // comienzo estilos desplegados
+                
+
+                    .submenu-items {
+                        position: absolute;
+                        top: 41px;
+                        left: 0;
+                        width: 200px;
+                        height: auto;
+                        background: @grey5!important;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: 0.1s all ease-in-out;
+                        cursor: initial;
+                        z-index: 45;
+                        //clase para abrir menú por jquery: 
+                            &.opened {
+                                display: block;
+                                visibility: visible;
+                                opacity: 1;
+                                transition: 0.1s all ease-in-out;
+                            }                        
+                        .submenu-layout {
+                            width: 100%;
+                            font-size: 0;
+                            // .opened {
+                            //     display: block;
+                            //     visibility: visible;
+                            //     opacity: 1;
+                            //     transition: 0.3s all ease-in-out;
+                            // }   COMENTADO PORQUE EL JQUERY NO SE LO TRAGA VIA .ADDCLASS
+                        
+                            ul {
+                                width: 100%;
+                                height: auto;
+                                font-size: 0;
+                                line-height: 10px;
+                                text-align: left;
+                                cursor: initial;
+                            }
+                                li {
+                                    position: relative;
+                                    width: 100%;
+                                    height: auto;
+                                    text-align: left;
+                                    transition: 0.1s all linear;
+                                }
+                                    a {
+                                        color:#fff;
+                                        text-transform: none;
+                                        width: 100%;
+                                        padding: 5px 10px;
+                                        border: none;
+                                        font-family: @mainFont;
+                                        font-size: @text;
+                                        line-height: 15px;
+                                        cursor: default;
+                                        transition: 0.1s all linear;                           
+                                        &:hover, &.opened {
+                                            background: transparent;  
+                                        }
+                                        
+                                    }
+                                    .sidemenu-items{    
+                                        position: absolute;
+                                        top: 0;
+                                        left: 100%;
+                                        bottom: initial;
+                                        background:@grey5;
+                                        border-bottom: 1px solid #cccccc;
+                                        visibility: hidden;
+                                        opacity: 0;
+                                        transition: 0.1s all ease-in-out;
+                                        width: 100%;
+
+                                        .sidemenu-layout {
+                                            ul {
+                                                li {
+                                                    vertical-align: top;
+                                                    a {
+                                                        position: relative;
+                                                        width: auto;
+                                                        background: transparent;
+                                                        font-family: @mainFont;
+                                                        font-size: 11px;
+                                                        color: @white;
+                                                        
+                                                        transition: 0.1s all ease-in-out;
+                                                        &:hover {
+                                                            background: #757575;
+                                                            color: @white;
+                                                        }
+                                                    } // a
+                                                } // li 
+                                            } // ul
+                                        } // cierra .sidemenu-layout
+
+                                    } // cierra .sidemenu-items
+                                
+                        } // cierra .submenu-layout  
+                    } // cierra .submenu-items
+
+                } // cierra .menu-layout
+    } // cierra .menu-items
+
+///             ESTILOS MÓVILES              /// 
+
+    &.mobile-menu {
+        display: inline-block !important;
+        vertical-align: middle;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: @grey2;
+        overflow: auto;
+        .close-icon {
+            display: block;
+        }
+        .return-icon {
+            &.actived {
+                display: block;
+            }
+        }
+        .menu-layout {
+            width: 100%;
+            ul {
+                width: 100%;
+                height: auto;
+                margin: 58px 0 0 0;
+                li {
+                    width: 100%;
+                    height: auto;
+                    text-align: center;
+                    border-top: 1px solid @grey5;
+                    &:last-child {
+                        border-bottom: 1px solid @grey5;
+                    }
+                    a {
+                        border: none;
+                        font-size: 24px;
+                        line-height: 75px;
+                        color: @greyE;
+                        text-transform: uppercase;
+                    }
+                    .submenu-layout {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        padding: 0;
+                        background: @grey2;
+                        box-shadow: inset 0 0 150px 0 rgba(255,255,255,.5);
+                        overflow: auto;
+                        ul {
+                            height: auto;
+                            margin: 58px 0 0 0;
+                            li {
+                                width: 100%;
+                                height: auto;
+                                padding: 0;
+                                text-align: center;
+                                border-top: 1px solid @grey5;
+                                &:last-child {
+                                    border-bottom: 1px solid @grey5;
+                                }
+                                a {
+                                    border: none;
+                                    font-size: 16px;
+                                    line-height: 40px;
+                                    color: @greyE;
+                                    text-transform: initial;
+                                }
+                            }
+                        }
+                    }  // cierro .submenu-layout                    
+                }  // cierro li
+            }  // cierro ul
+        }  //  cierro .menu-layout
+    }  //  cierro .mobile-menu
+}  //  cierro .menu
+
+@media (max-width: 1023px) {
+
+    html {
+        body {
+            padding: 100px 0 0 0;
+            &.no-menu {
+                padding: 145px 0 0 0;
+                header {
+                    &.header-small {
+                        .header-left {
+                            img {
+                                margin-left: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.with-menu {
+                .menu {
+                    display: none;
+                    .menu-items {
+                        width: 100%;
+                        &.mobile-menu {
+                            .menu-layout {
+                                display: table;
+                                vertical-align: middle;
+                                ul {
+                                    display: table-cell;
+                                    vertical-align: middle;
+                                    margin: 0;
+                                    li {
+                                        .menu-layout {
+                                            ul {
+                                                li {
+                                                    a {
+                                                        &:hover {
+                                                            &:before, &:after {
+                                                                display: none;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .icons-layout {
+                        background: none;
+                        border: none;
+                    }
+                    .user {
+                        position: absolute;
+                        bottom: 20px;
+                        right: 0;
+                        width: 100%;
+                        padding-right: 0;
+                        text-align: center;
+                        img {
+                            display: none;
+                        }
+                        .user-opt-lay {
+                            margin-right: 0;
+                            .user-opt {
+                                &.user-opt-info {
+                                    display: none;
+                                }
+                                &.user-opt-logout {
+                                    a {
+                                        font-family: @mainFont-light;
+                                        font-size: 14px;
+                                        color: @white;
+                                        &:before, &:after {
+                                            content: '';
+                                            display: inline-block;
+                                            vertical-align: top;
+                                            margin-top: -2px;
+                                            font-size: 16px;
+                                        }
+                                        &:before {
+                                            content: '[';
+                                            margin-right: 5px;
+                                        }
+                                        &:after {
+                                            content: ']';
+                                            margin-left: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .with-menu {
+        .menu {
+            .menu-items {
+                .menu-layout {
+                    width: 100%;
+                    ul {
+                        width: 100%;
+                        li {
+                            a {
+                                padding: 0 25px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    html {
+        body {
+            &.no-menu {
+                header {
+                    &.header-small {
+                        .header-left {
+                            left: 5px;
+                            right: initial;
+                            text-align: left;
+                        }
+                        .header-center {
+                            padding-left: 15px;
+                            text-align: left;
+                        }
+                        .header-right {
+                            left: 125px;
+                            right: initial;
+                            text-align: left;
+                        }
+                    }
+                }
+                .layout {
+                    &.title {
+                        top: 80px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+ // cierra .menu
+    
+/* clase opened que los jquery no se tragan
+
+.opened {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.2s all ease-in-out;
+} */
+
+

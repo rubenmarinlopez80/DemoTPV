@@ -1,0 +1,137 @@
+/************************* COMPONENTS / LISTS ******************************/
+
+ul, ol {
+    &.listed {
+        display: inline-block;
+        vertical-align: middle;
+        font-family: @mainFont-light;
+        font-size: @text;
+        color: rgb(51, 51, 51);
+    }
+}
+
+ul {
+    &.listed {
+        list-style: none;
+        li {
+            &:before {
+                content: '\f111';
+                margin-right: 5px;
+                font-family: 'fontAwesome';
+                font-size: 8px;
+                color: @mainBG1;
+            }
+        }
+        &.dots {
+            li {
+                &:before {
+                    content: '\f111';
+                    position: relative;
+                    top: -2px;
+                    font-size: 6px;
+                }
+            }
+        }
+        &.angles {
+            li {
+                &:before {
+                    content: '\f101';
+                    position: relative;
+                    top: 0;
+                    font-size: 14px;
+                }
+            }
+        }
+        &.arrows {
+            li {
+                &:before {
+                    content: '\f0da';
+                    position: relative;
+                    top: 0;
+                    font-size: 14px;
+                }
+            }
+        }
+        &.uploaded {
+            width: 100%;
+            margin-bottom: 0;
+            text-align: left;
+            li {
+                position: relative;
+                padding: 5px 30px 5px 5px;
+                border-top: 1px dashed @greyE;
+                font-family: @mainFont;
+                font-size: @text;
+                word-break: break-all;
+                &:last-child {
+                    border-bottom: 1px dashed @greyE;
+                }
+                &:before {
+                    content: '\f0c8';
+                    position: relative;
+                    top: -3px;
+                    margin-right: 7px;
+                    font-size: 4px;
+                    color: @grey6;
+                }
+                &.uploaded-ok, &.uploaded-no {
+                    &:after {
+                        display: inline-block;
+                        vertical-align: middle;
+                        position: absolute;
+                        top: 6px;
+                        right: 5px;
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 50%;
+                        font-family: 'fontAwesome';
+                        font-size: 10px;
+                        line-height: 15px;
+                        color: @white;
+                        text-align: center;
+                    }
+                }
+                &.uploaded-ok {
+                    &:after {
+                        content: '\f00c';
+                        background: @green;
+                    }
+                }
+                &.uploaded-no {
+                    &:after {
+                        content: '\f00d';
+                        background: @red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+ol {
+    &.listed {
+        list-style: none;
+        counter-reset: my-badass-counter;
+        li {
+            margin-bottom: 3px;
+            &:before {
+                content: counter(my-badass-counter);
+                counter-increment: my-badass-counter;
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                top: -1px;
+                width: 15px;
+                height: 15px;
+                margin-right: 5px;
+                background: @mainBG1;
+                border-radius: 100%;
+                font-family: @mainFont-bold;
+                font-size: 9px;
+                color: @white;
+                line-height: 15px;
+                text-align: center;
+            }
+        }
+    }
+}

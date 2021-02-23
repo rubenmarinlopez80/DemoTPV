@@ -1,0 +1,31 @@
+/************************* COMPONDNTS / SORTABLE ******************************/
+
+.sortable {
+    list-style: none;
+    .sortable-item {
+        position: relative;
+        margin-bottom: 2px;
+        padding: 10px;
+        border: 1px solid @greyE;
+        font-family: @mainFont-light;
+        font-size: @text;
+        color: @grey3;
+        text-align: left;
+        word-break: break-word;
+        white-space: normal;
+        cursor: pointer;
+        &:last-child {
+        	margin-bottom: 0;
+        }
+        &:nth-child(odd) {
+            background: @greyE;
+        }
+        &:nth-child(even) {
+            background: @greyD;
+        }
+		&:hover {
+			background: #d6e6f0;
+			cursor: pointer;
+		}
+    }
+}

@@ -1,0 +1,69 @@
+/************************* LAYOUT / CONTENT ******************************/
+
+.layout {
+  padding: 20px 0 0 0;
+
+  /* Title */
+
+  &.title {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background: @mainBG2;
+    font-family: @mainFont-bold;
+    font-size: @text;
+    color: @iconBG1;
+    text-transform: uppercase;
+    z-index: 99999;
+    small {
+      display: block;
+      opacity: .6;
+    }
+  }
+
+  &.centered {
+    text-align: center;
+  }
+}
+
+.layout-btn {
+  padding: 15px;
+  background: @white2;
+  border: 1px solid @greyE;
+  text-align: right;
+}
+
+.content {
+  &.centered {
+    text-align: center;
+  }
+}
+
+.centered {
+  text-align: center;
+  margin: 5px 0px;
+}
+
+.lefted {
+  text-align: left;
+  margin: 5px 0px;
+}
+
+.righted {
+  text-align: right;
+  margin: 5px 0px;
+}
+
+.numbers {
+  text-align: right;
+}
+
+.dates {
+  text-align: center;
+}
+
+.texts {
+  text-align: left;
+}

@@ -1,0 +1,49 @@
+/************************* COMPONENTS / FILTERS ******************************/
+
+.row {
+	&.filters {
+		margin: 0;
+		.checks {
+			margin-top: 10px;
+		}
+	}
+}
+
+@media (max-width: 1023px) {
+
+	.filters  {
+		.form-group {
+			.checks, .radios {
+				label {
+				    display: inline-block;
+				    vertical-align: middle;
+				    margin: 0 10px;
+				}
+			}
+		}
+	}
+
+}
+
+@media (max-width: 767px) {
+
+	.filters  {
+		.form-group {
+			.checks, .radios {
+				label {
+				    display: block;
+				    margin: 5px;
+				}
+			}
+		}
+		.form-right {
+			.form-group {
+				text-align: left;
+				label {
+					text-align: left;
+				}
+			}
+		}
+	}
+
+}
